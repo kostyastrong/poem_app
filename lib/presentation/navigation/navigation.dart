@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poems_app/presentation/navigation/routes.dart';
+import 'package:poem_app/presentation/navigation/routes.dart';
 
 class Navigation {
   static final navigationKey = GlobalKey<NavigatorState>();

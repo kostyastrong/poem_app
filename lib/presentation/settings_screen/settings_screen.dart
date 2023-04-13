@@ -1,7 +1,59 @@
-// import 'package:flutter/material.dart';
-//
-// import '../theme/theme.dart';
-//
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flutter/material.dart';
+
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text("Settings")),
+      ),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "Dark theme",
+                style: TextStyle(fontSize: 30),
+              ),
+              FutureBuilder(
+                future: AdaptiveTheme.getThemeMode(),
+                builder: (BuildContext context, themeSnapshot) {
+                  return Switch(
+                    value: themeSnapshot.data == AdaptiveThemeMode.dark,
+                    onChanged: (bool value) {
+                      setState(
+                        () {
+                          setState(() {
+                            AdaptiveTheme.of(context).toggleThemeMode();
+                          });
+                        },
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+          Row(
+            children: const [
+              Text("Second row"),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
 // class MyApp extends StatefulWidget {
 //   const MyApp({super.key});
 //

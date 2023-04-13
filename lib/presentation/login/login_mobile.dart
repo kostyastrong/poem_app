@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:poems_app/presentation/styles/texts.dart';
-
-import 'package:poems_app/presentation/styles/buttons.dart';
+import 'package:poem_app/presentation/styles/buttons.dart';
+import 'package:poem_app/presentation/styles/texts.dart';
 
 class LoginMobile extends StatefulWidget {
   const LoginMobile({Key? key}) : super(key: key);
