@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poems_app/di/di.dart';
-import 'package:poems_app/presentation/lang.dart';
-
+import 'package:poem_app/di.dart';
+import 'package:poem_app/presentation/lang.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,6 +22,11 @@ class HomePage extends ConsumerWidget {
                 ref.watch(navigation).pushLogin();
               },
               child: Text('Login')),
+          ElevatedButton(
+              onPressed: () {
+                ref.watch(navigation).pushEdit();
+              },
+              child: Text('Edit')),
         ],
       ),
     );
