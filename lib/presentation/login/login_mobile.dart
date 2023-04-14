@@ -10,36 +10,38 @@ import '/presentation/styles/texts.dart';
 
 import 'package:poem_app/presentation/styles/buttons.dart';
 
-class LoginMobile extends ConsumerWidget {
-  const LoginMobile({Key? key}) : super(key: key);
+class LoginPage extends ConsumerWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final stateLoginSignUp = ref.watch(loginSignUpProvider);
 
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/backgrounds/desert.jpg'),
-            fit: BoxFit.cover),
-      ),
-      child: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(30),
-            child: SizedBox(
-              width: 400,
-              height: 500,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.white54,
-                ),
-                child: Center(
-                  child: SizedBox(
-                    width: 300,
-                    child: stateLoginSignUp.when(
-                        login: () => LoginInner(), signup: () => SignUpInner(),
-                    forgotPass: () => ForgotPassInner(),),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/backgrounds/desert.jpg'),
+              fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(30),
+              child: SizedBox(
+                width: 400,
+                height: 500,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white54,
+                  ),
+                  child: Center(
+                    child: SizedBox(
+                      width: 300,
+                      child: stateLoginSignUp.when(
+                          login: () => LoginInner(), signup: () => SignUpInner(),
+                      forgotPass: () => ForgotPassInner(),),
+                    ),
                   ),
                 ),
               ),

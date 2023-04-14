@@ -16,5 +16,5 @@
   "loginToAcc": "Login to your account",
   "email": "Email",
   "recoverAcc": "Recover your account",
-  "restorePass": "Restore the password"
+  "resetPass": "Reset password"
 }

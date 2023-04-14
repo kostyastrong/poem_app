@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/domain/authentication.dart';
-import 'package:poem_app/presentation/login/login_manager.dart';
-import 'package:poem_app/presentation/login/login_sign_up_notifier.dart';
-import 'package:poem_app/presentation/login/login_sign_up_state.dart';
-import 'package:poem_app/presentation/navigation/navigation.dart';
+import 'package:poem_app/domain/login/login_manager.dart';
+import 'package:poem_app/domain/navigation/navigation.dart';
+
+import 'domain/login/login_sign_up_notifier.dart';
+import 'domain/login/login_sign_up_state.dart';
 
 final navigation = Provider((ref) => Navigation());
 final authenticationProvider = Provider((ref) => Authentication());

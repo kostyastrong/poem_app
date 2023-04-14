@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:poem_app/presentation/edit.dart';
+import 'package:poem_app/presentation/edit/edit.dart';
 import 'package:poem_app/presentation/home_page.dart';
 import 'package:poem_app/presentation/login/forgotPassInner.dart';
-import 'package:poem_app/presentation/login/login.dart';
+import 'package:poem_app/presentation/login/login_mobile.dart';
+
 import 'package:poem_app/presentation/settings.dart';
 
 class Routes {
