@@ -5,6 +5,6 @@ import 'package:poem_app/presentation/navigation/named_routes.dart';
 
 void main() {
   // Slow down time to see lerping.
-  timeDilation = 2.0;
+  timeDilation = 0.5;
   runApp(const NamedRoutesWithParams());
 }

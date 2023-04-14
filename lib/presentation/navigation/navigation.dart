@@ -9,9 +9,6 @@ class Navigation {
   void pushEdit() {
     navigationKey.currentState!.pushNamed(Routes.edit);
   }
-  void pushForgotPass() {
-    navigationKey.currentState!.pushNamed(Routes.forgotPass);
-  }
   void pushSettings() {
     navigationKey.currentState!.pushNamed(Routes.settings);
   }
