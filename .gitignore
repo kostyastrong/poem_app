@@ -37,6 +37,8 @@ macos/
 .pub/
 /build/
 
+build/
+
 # Symbolication related
 app.*.symbols
 
