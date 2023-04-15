@@ -6,11 +6,14 @@ import 'package:poem_app/presentation/login/login_mobile.dart';
 
 import 'package:poem_app/presentation/settings.dart';
 
+import '../../presentation/login/default_login.dart';
+
 class Routes {
   static const home = '/';
   static const settings = '/settings';
   static const login = '/login';
   static const edit = '/edit';
+  static const profile = '/profile';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     final Widget widget;
@@ -22,7 +25,7 @@ class Routes {
         widget = const Settings();
         break;
       case login:
-        widget = const LoginPage();
+        widget = const DefaultLoginPage();
         break;
       default:
         widget = const HomePage();
