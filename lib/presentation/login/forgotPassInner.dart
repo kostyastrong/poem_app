@@ -17,16 +17,6 @@ class ForgotPassInner extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     logger.i('forgotPassPage');
 
-    FirebaseAuth.instance
-        .authStateChanges()
-        .listen((User? user) {
-      if (user != null) {
-        logger.i(user.uid);
-      } else {
-        logger.i("unautharized");
-      }
-    });
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,

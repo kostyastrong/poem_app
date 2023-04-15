@@ -39,8 +39,10 @@ class LoginPage extends ConsumerWidget {
                     child: SizedBox(
                       width: 300,
                       child: stateLoginSignUp.when(
-                          login: () => LoginInner(), signup: () => SignUpInner(),
-                      forgotPass: () => ForgotPassInner(),),
+                        login: () => LoginInner(),
+                        signup: () => SignUpInner(),
+                        forgotPass: () => ForgotPassInner(),
+                      ),
                     ),
                   ),
                 ),
