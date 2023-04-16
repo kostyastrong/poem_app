@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poem_app/presentation/navigation/routes.dart';
+import 'routes.dart';
 
 class Navigation {
   static final navigationKey = GlobalKey<NavigatorState>();
@@ -8,9 +8,6 @@ class Navigation {
   }
   void pushEdit() {
     navigationKey.currentState!.pushNamed(Routes.edit);
-  }
-  void pushForgotPass() {
-    navigationKey.currentState!.pushNamed(Routes.forgotPass);
   }
   void pushSettings() {
     navigationKey.currentState!.pushNamed(Routes.settings);
