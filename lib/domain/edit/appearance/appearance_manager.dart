@@ -11,12 +11,12 @@ class AppearManager {
     appearNotifier.changeAppearAlign(newAlign);
   }
 
-  void changeAlignStart() {
-    appearNotifier.changeAppearAlignToStart();
+  void changeAlignLeft() {
+    appearNotifier.changeAppearAlignToLeft();
   }
 
-  void changeAlignEnd() {
-    appearNotifier.changeAppearAlignToEnd();
+  void changeAlignRight() {
+    appearNotifier.changeAppearAlignToRight();
   }
 
   void changeAlignCenter() {

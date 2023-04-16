@@ -12,7 +12,7 @@ class AppearNotifier extends StateNotifier<AppearState> {
     state = AppearState(align: newAlign);
   }
 
-  void changeAppearAlignToStart() {
+  void changeAppearAlignToLeft() {
     state = const AppearState(align: TextAlign.start);
   }
 
@@ -20,7 +20,7 @@ class AppearNotifier extends StateNotifier<AppearState> {
     state = const AppearState(align: TextAlign.center);
   }
 
-  void changeAppearAlignToEnd() {
+  void changeAppearAlignToRight() {
     state = const AppearState(align: TextAlign.end);
   }
 }

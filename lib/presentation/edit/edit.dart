@@ -3,11 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
+import 'package:poem_app/presentation/edit/poem_text.dart';
 import 'package:poem_app/presentation/styles/texts.dart';
 
 import '/di.dart';
 import '../lang.dart';
+import 'align_button.dart';
 
 class EditPage extends ConsumerWidget {
   const EditPage({Key? key}) : super(key: key);
@@ -46,51 +49,21 @@ class EditPage extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AlignButton(
-                  alignFunc: manager.changeAlignStart,
-                  icon: Text('s', style: ThemeText.smallBold),
+                  alignFunc: manager.changeAlignLeft,
+                  icon: SvgPicture.asset('assets/appearance/align_icons/align-left.svg'),
                 ),
                 AlignButton(
                   alignFunc: manager.changeAlignCenter,
-                  icon: Text('c', style: ThemeText.smallBold),
+                  icon: SvgPicture.asset('assets/appearance/align_icons/align-center.svg'),
                 ),
                 AlignButton(
-                  alignFunc: manager.changeAlignEnd,
-                  icon: Text('e', style: ThemeText.smallBold),
+                  alignFunc: manager.changeAlignRight,
+                  icon: SvgPicture.asset('assets/appearance/align_icons/align-right.svg'),
                 ),
               ],
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class PoemText extends ConsumerWidget {
-  const PoemText({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final alignState = ref.watch(appearProvider);
-    logger.i("Main edit field for poem build");
-
-    return SingleChildScrollView(
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: firstCapitalized(Lang.of(context).textOfPoem),
-          border: InputBorder.none,
-        ),
-        minLines: 100,
-        style: ThemeText.defaultPoem,
-        maxLines: null,
-        textCapitalization: TextCapitalization.sentences,
-        inputFormatters: [
-          //UpperCaseTextFormatter(),
-        ],
-        cursorColor: Colors.red,
-        textAlign: alignState.align,
-        autofocus: true,
-        keyboardType: TextInputType.multiline,
       ),
     );
   }
@@ -136,23 +109,3 @@ class FourStringsEnter extends TextInputFormatter {
   }
 }
 
-class AlignButton extends StatelessWidget {
-  const AlignButton({Key? key, required this.alignFunc, required this.icon})
-      : super(key: key);
-  final alignFunc;
-  final icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.red[50],
-          shape: CircleBorder(),
-          side: BorderSide(color: Colors.red, width: 2),
-        ),
-        onPressed: () {
-          alignFunc();
-        },
-        child: Center(child: icon));
-  }
-}
