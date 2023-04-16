@@ -1,0 +1,20 @@
+{
+  "appTitle": "Poetry Life",
+  "save": "save",
+  "title": "title",
+  "textOfPoem": "text of the poem",
+  "errorMessage": "Error occurred",
+  "ok": "Ok",
+  "password": "Password",
+  "loginWithGoogle": "Login with Google",
+  "signUpWithGoogle": "Sign up with Google",
+  "createAccount": "Create account",
+  "forgotPassQuestion": "Forgot password?",
+  "signUp": "Sign Up",
+  "login": "Login",
+  "welcomeBack": "Welcome back",
+  "loginToAcc": "Login to your account",
+  "email": "Email",
+  "recoverAcc": "Recover your account",
+  "resetPass": "Reset password"
+}
