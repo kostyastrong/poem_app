@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/di.dart';
+import 'package:poem_app/domain/db/db_manager.dart';
 import 'package:poem_app/presentation/lang.dart';
 import 'package:poem_app/presentation/styles/texts.dart';
 
@@ -17,6 +18,8 @@ class HomePage extends ConsumerWidget {
     } else {
       logger.i("Home page build, user is ${FirebaseAuth.instance.currentUser}");
     }
+
+    ref.read(dbManagerProvider).poemStream();
 
     return Scaffold(
       appBar: AppBar(

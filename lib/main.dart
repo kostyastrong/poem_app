@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
@@ -20,6 +21,7 @@ Future<void> main() async {
         clientId:
             '620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com'),
   ]);
+  FirebaseFirestore.instance;
 
   runApp(const NamedRoutesWithParams());
 }
