@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
+import 'package:poem_app/presentation/settings_screen/settings_screen.dart';
+import 'package:poem_app/presentation/theme/theme.dart';
 
 import 'domain/firebase_options.dart';
 
