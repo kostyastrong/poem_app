@@ -48,7 +48,7 @@ class SignUpInner extends StatelessWidget {
                       flex: 1,
                       child: SizedBox(
                           height: 24,
-                          child: Image.asset('assets/images/google.png'))),
+                          child: Image.asset('assets/images/google.png'),),),
                   const SizedBox(
                     width: 10,
                   ),
@@ -57,10 +57,10 @@ class SignUpInner extends StatelessWidget {
                     child: Text(Lang.of(context).signUpWithGoogle,
                         style: ThemeText.smallBold.copyWith(
                           color: Colors.white,
-                        )),
+                        ),),
                   ),
                 ],
-              )),
+              ),),
         ),
       ],
     );

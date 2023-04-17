@@ -20,19 +20,19 @@ class _EditPageState extends State<EditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Row(
               children: [
-                BackButton(),
-                Spacer(),
+                const BackButton(),
+                const Spacer(),
                 TextButton(
                     onPressed: () {},
                     child: Text(
                       Lang.of(context).save,
                       style: ThemeText.smallBold.copyWith(color: Colors.red),
-                    )),
+                    ),),
               ],
             ),
             TextField(
@@ -43,46 +43,46 @@ class _EditPageState extends State<EditPage> {
               style: ThemeText.defaultPoemTitle,
               textCapitalization: TextCapitalization.words,
             ),
-            Expanded(child: PoemText()),
+            const Expanded(child: PoemText()),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red[50],
-                      shape: CircleBorder(),
-                      side: BorderSide(color: Colors.red, width: 2),
+                      shape: const CircleBorder(),
+                      side: const BorderSide(color: Colors.red, width: 2),
                     ),
                     onPressed: () {},
                     child: Center(
                         child: Text(
                           '1',
                           style: ThemeText.smallBold,
-                        ))),
+                        ),),),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red[50],
-                      shape: CircleBorder(),
-                      side: BorderSide(color: Colors.red, width: 2),
+                      shape: const CircleBorder(),
+                      side: const BorderSide(color: Colors.red, width: 2),
                     ),
                     onPressed: () {},
                     child: Center(
                         child: Text(
                           '2',
                           style: ThemeText.smallBold,
-                        ))),
+                        ),),),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red[50],
-                      shape: CircleBorder(),
-                      side: BorderSide(color: Colors.red, width: 2),
+                      shape: const CircleBorder(),
+                      side: const BorderSide(color: Colors.red, width: 2),
                     ),
                     onPressed: () {},
                     child: Center(
                         child: Text(
                       '3',
                           style: ThemeText.smallBold,
-                    ))),
+                    ),),),
               ],
             )
           ],
@@ -112,7 +112,7 @@ class _PoemTextState extends State<PoemText> {
         style: ThemeText.defaultPoem,
         maxLines: null,
         textCapitalization: TextCapitalization.sentences,
-        inputFormatters: [
+        inputFormatters: const [
           //UpperCaseTextFormatter(),
         ],
         cursorColor: Colors.red,
@@ -128,7 +128,7 @@ class _PoemTextState extends State<PoemText> {
 class UpperCaseTextFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+      TextEditingValue oldValue, TextEditingValue newValue,) {
     logger.i('UpperCaseFormatter');
     LineSplitter ls = const LineSplitter();
     var lines = ls.convert(newValue.text);
@@ -155,7 +155,7 @@ String firstCapitalized(String value) {
 class FourStringsEnter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+      TextEditingValue oldValue, TextEditingValue newValue,) {
     return TextEditingValue(
       text: newValue.text,
       selection: newValue.selection,

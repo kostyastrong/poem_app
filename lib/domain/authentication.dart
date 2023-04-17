@@ -13,7 +13,7 @@ class Authentication {
   Stream<User?> get authStateChange => _auth.authStateChanges();
 
   Future<void> signInWithEmailAndPassword(
-      String email, String password, BuildContext context) async {
+      String email, String password, BuildContext context,) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
@@ -27,7 +27,7 @@ class Authentication {
                 onPressed: () {
                   Navigator.of(ctx).pop();
                 },
-                child: Text(Lang.of(context).ok))
+                child: Text(Lang.of(context).ok),)
           ],
         ),
       );
@@ -35,7 +35,7 @@ class Authentication {
   }
 
   Future<void> signUpWithEmailAndPassword(
-      String email, String password, BuildContext context) async {
+      String email, String password, BuildContext context,) async {
     try {
       _auth.createUserWithEmailAndPassword(
         email: email,
@@ -52,8 +52,8 @@ class Authentication {
                     onPressed: () {
                       Navigator.of(ctx).pop();
                     },
-                    child: Text(Lang.of(context).ok))
-              ]));
+                    child: Text(Lang.of(context).ok),)
+              ],),);
     } catch (e) {
       if (e == 'email-already-in-use') {
         // print('Email already in use.');
@@ -90,7 +90,7 @@ class Authentication {
                 onPressed: () {
                   Navigator.of(ctx).pop();
                 },
-                child: Text(Lang.of(context).ok))
+                child: Text(Lang.of(context).ok),)
           ],
         ),
       );

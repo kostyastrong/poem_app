@@ -82,7 +82,7 @@ class LoginInner extends ConsumerWidget {
                       flex: 1,
                       child: SizedBox(
                           height: 24,
-                          child: Image.asset('assets/images/google.png'))),
+                          child: Image.asset('assets/images/google.png'),),),
                   const SizedBox(
                     width: 10,
                   ),
@@ -91,10 +91,10 @@ class LoginInner extends ConsumerWidget {
                     child: Text(Lang.of(context).loginWithGoogle,
                         style: ThemeText.smallBold.copyWith(
                           color: Colors.white,
-                        )),
+                        ),),
                   ),
                 ],
-              )),
+              ),),
         ),
       ],
     );

@@ -14,19 +14,19 @@ class HomePage extends ConsumerWidget {
       ),
       body: ListView(
         children: [
-          Text('el1'),
-          Text('el2'),
-          Text('el3'),
+          const Text('el1'),
+          const Text('el2'),
+          const Text('el3'),
           ElevatedButton(
               onPressed: () {
                 ref.watch(navigation).pushLogin();
               },
-              child: Text('Login')),
+              child: const Text('Login'),),
           ElevatedButton(
               onPressed: () {
                 ref.watch(navigation).pushEdit();
               },
-              child: Text('Edit')),
+              child: const Text('Edit'),),
         ],
       ),
     );
