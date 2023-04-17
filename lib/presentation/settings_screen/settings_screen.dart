@@ -19,7 +19,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           children: [
-            ThemeSwitcher(),
+            const ThemeSwitcher(),
             const SizedBox(height: 10),
             // const Divider(),
             Row(

@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
     return const ProviderScope(
       child: MaterialApp(
         title: 'Flutter Demo',
-        home: ThemeWidget(
-          child: SettingsScreen(),
-        ),
+        home: ThemeWidget(child: SettingsScreen()),
       ),
     );
   }

@@ -18,5 +18,4 @@ abstract class ThemeText {
     color: Colors.black,
     fontWeight: FontWeight.w700,
   );
-
 }

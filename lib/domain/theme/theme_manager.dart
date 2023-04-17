@@ -3,11 +3,9 @@ import 'package:poem_app/domain/theme/theme_state_holder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final themeManagerProvider = Provider(
-      (ref) =>
-  ThemeManager(
+  (ref) => ThemeManager(
     ref.watch(themeStateHolderProvider.notifier),
-  )
-    ..init(),
+  )..init(),
 );
 
 class ThemeManager {

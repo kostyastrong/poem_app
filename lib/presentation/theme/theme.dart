@@ -15,9 +15,7 @@ class ThemeWidget extends ConsumerWidget {
     final state = ref.watch(themeStateHolderProvider);
 
     return Theme(
-      data: state == ThemeEnum.dark
-          ? ThemeData.dark()
-          : ThemeData.light(),
+      data: state == ThemeEnum.dark ? ThemeData.dark() : ThemeData.light(),
       child: child,
     );
   }

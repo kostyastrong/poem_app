@@ -5,6 +5,6 @@ class ForgotPassPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('forgot password?');
+    return const Text('forgot password?');
   }
 }

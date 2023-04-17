@@ -6,5 +6,4 @@ abstract class ThemeButton {
 
   static const ButtonStyle blackButton =
       ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.black));
-
 }

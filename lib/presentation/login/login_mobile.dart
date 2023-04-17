@@ -15,8 +15,9 @@ class _LoginMobileState extends State<LoginMobile> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/backgrounds/desert.jpg'),
-            fit: BoxFit.cover),
+          image: AssetImage('assets/backgrounds/desert.jpg'),
+          fit: BoxFit.cover,
+        ),
       ),
       child: const Center(
         child: SingleChildScrollView(
@@ -88,28 +89,33 @@ class LoginInner extends StatelessWidget {
         SizedBox(
           height: 36,
           child: TextButton(
-              style: ThemeButton.blackButton,
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                      flex: 1,
-                      child: SizedBox(
-                          height: 24,
-                          child: Image.asset('assets/images/google.png'))),
-                  const SizedBox(
-                    width: 10,
+            style: ThemeButton.blackButton,
+            onPressed: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: SizedBox(
+                    height: 24,
+                    child: Image.asset('assets/images/google.png'),
                   ),
-                  Flexible(
-                    flex: 2,
-                    child: Text('Login with Google',
-                        style: ThemeText.smallBoldText.copyWith(
-                          color: Colors.white,
-                        )),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Text(
+                    'Login with Google',
+                    style: ThemeText.smallBoldText.copyWith(
+                      color: Colors.white,
+                    ),
                   ),
-                ],
-              )),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );

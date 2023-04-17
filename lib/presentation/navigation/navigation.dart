@@ -6,15 +6,19 @@ class Navigation {
   void pushLogin() {
     navigationKey.currentState!.pushNamed(Routes.login);
   }
+
   void pushEdit() {
     navigationKey.currentState!.pushNamed(Routes.edit);
   }
+
   void pushForgotPass() {
     navigationKey.currentState!.pushNamed(Routes.forgotPass);
   }
+
   void pushSettings() {
     navigationKey.currentState!.pushNamed(Routes.settings);
   }
+
   void pushHome() {
     navigationKey.currentState!.pushNamed(Routes.home);
   }

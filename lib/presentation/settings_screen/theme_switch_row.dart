@@ -22,8 +22,9 @@ class ThemeSwitcher extends ConsumerWidget {
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         Switch(
-            value: isDark,
-            onChanged: (_) => ref.watch(themeManagerProvider).updateSetting()),
+          value: isDark,
+          onChanged: (_) => ref.watch(themeManagerProvider).updateSetting(),
+        ),
       ],
     );
   }

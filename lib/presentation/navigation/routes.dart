@@ -35,7 +35,7 @@ class Routes {
         break;
     }
     return MaterialPageRoute(
-      builder: (context) => widget
+      builder: (context) => widget,
     );
   }
 }
