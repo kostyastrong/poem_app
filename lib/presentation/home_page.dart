@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poem_app/di/di.dart';
+import 'package:poem_app/di.dart';
 import 'package:poem_app/presentation/lang.dart';
 
 class HomePage extends ConsumerWidget {
@@ -14,15 +14,19 @@ class HomePage extends ConsumerWidget {
       ),
       body: ListView(
         children: [
-          const Text('el1'),
-          const Text('el2'),
-          const Text('el3'),
+          Text('el1'),
+          Text('el2'),
+          Text('el3'),
           ElevatedButton(
-            onPressed: () {
-              ref.watch(navigation).pushLogin();
-            },
-            child: const Text('Login'),
-          ),
+              onPressed: () {
+                ref.watch(navigation).pushLogin();
+              },
+              child: Text('Login')),
+          ElevatedButton(
+              onPressed: () {
+                ref.watch(navigation).pushEdit();
+              },
+              child: Text('Edit')),
         ],
       ),
     );
