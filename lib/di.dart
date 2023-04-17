@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poem_app/domain/authentication.dart';
+
 import 'package:poem_app/domain/edit/appearance/appearance_manager.dart';
 import 'package:poem_app/domain/edit/appearance/appearance_notifier.dart';
 import 'package:poem_app/domain/edit/appearance/appearance_state.dart';
@@ -15,8 +15,6 @@ final loginSignUpProvider =
         (ref) => LoginSignUpNotifier());
 final loginManagerProvider =
     Provider((ref) => LoginManager(ref.watch(loginSignUpProvider.notifier)));
-
-final authProvider = Provider((ref) => Authentication());
 
 final appearProvider = StateNotifierProvider<AppearNotifier, AppearState>(
     (ref) => AppearNotifier());

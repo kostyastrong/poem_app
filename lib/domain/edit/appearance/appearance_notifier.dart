@@ -9,18 +9,6 @@ class AppearNotifier extends StateNotifier<AppearState> {
             align: TextAlign.left)); // could do without params???
 
   void changeAppearAlign(TextAlign newAlign) {
-    state = AppearState(align: newAlign);
-  }
-
-  void changeAppearAlignToLeft() {
-    state = const AppearState(align: TextAlign.start);
-  }
-
-  void changeAppearAlignToCenter() {
-    state = const AppearState(align: TextAlign.center);
-  }
-
-  void changeAppearAlignToRight() {
-    state = const AppearState(align: TextAlign.end);
+    state =  AppearState(align: newAlign);
   }
 }

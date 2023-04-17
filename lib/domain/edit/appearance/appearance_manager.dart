@@ -10,16 +10,4 @@ class AppearManager {
   void changeAlign(TextAlign newAlign) {
     appearNotifier.changeAppearAlign(newAlign);
   }
-
-  void changeAlignLeft() {
-    appearNotifier.changeAppearAlignToLeft();
-  }
-
-  void changeAlignRight() {
-    appearNotifier.changeAppearAlignToRight();
-  }
-
-  void changeAlignCenter() {
-    appearNotifier.changeAppearAlignToCenter();
-  }
 }

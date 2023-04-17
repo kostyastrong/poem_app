@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AlignButton extends StatelessWidget {
-  const AlignButton({Key? key, required this.alignFunc, required this.icon})
+  const AlignButton({Key? key, required this.align, required this.alignFunc, required this.icon})
       : super(key: key);
   final alignFunc;
+  final align;
   final icon;
 
   @override
@@ -15,7 +16,7 @@ class AlignButton extends StatelessWidget {
           side: BorderSide(color: Colors.red, width: 2),
         ),
         onPressed: () {
-          alignFunc();
+          alignFunc(align);
         },
         child: Center(child: icon));
   }

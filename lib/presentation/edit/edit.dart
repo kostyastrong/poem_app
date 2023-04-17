@@ -49,15 +49,18 @@ class EditPage extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AlignButton(
-                  alignFunc: manager.changeAlignLeft,
+                  alignFunc: manager.changeAlign,
+                  align: TextAlign.left,
                   icon: SvgPicture.asset('assets/appearance/align_icons/align-left.svg'),
                 ),
                 AlignButton(
-                  alignFunc: manager.changeAlignCenter,
+                  alignFunc: manager.changeAlign,
+                  align: TextAlign.center,
                   icon: SvgPicture.asset('assets/appearance/align_icons/align-center.svg'),
                 ),
                 AlignButton(
-                  alignFunc: manager.changeAlignRight,
+                  alignFunc: manager.changeAlign,
+                  align: TextAlign.right,
                   icon: SvgPicture.asset('assets/appearance/align_icons/align-right.svg'),
                 ),
               ],
