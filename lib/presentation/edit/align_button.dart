@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AlignButton extends StatelessWidget {
-  const AlignButton({Key? key, required this.align, required this.alignFunc, required this.icon})
+  const AlignButton(
+      {Key? key,
+      required this.align,
+      required this.alignFunc,
+      required this.icon})
       : super(key: key);
   final alignFunc;
   final align;

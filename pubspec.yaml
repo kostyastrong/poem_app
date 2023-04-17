@@ -29,6 +29,8 @@ dependencies:
   firebase_ui_oauth_google: ^1.1.1
   flutter_svg: any
   firebase_database: ^10.1.0
+  flutter_swipe_action_cell: ^3.1.0
+  firebase_crashlytics: ^3.1.0
 
 dev_dependencies:
   flutter_test:

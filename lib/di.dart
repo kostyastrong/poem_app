@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:poem_app/domain/edit/appearance/appearance_manager.dart';
 import 'package:poem_app/domain/edit/appearance/appearance_notifier.dart';
 import 'package:poem_app/domain/edit/appearance/appearance_state.dart';

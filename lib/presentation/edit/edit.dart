@@ -51,17 +51,20 @@ class EditPage extends ConsumerWidget {
                 AlignButton(
                   alignFunc: manager.changeAlign,
                   align: TextAlign.left,
-                  icon: SvgPicture.asset('assets/appearance/align_icons/align-left.svg'),
+                  icon: SvgPicture.asset(
+                      'assets/appearance/align_icons/align-left.svg'),
                 ),
                 AlignButton(
                   alignFunc: manager.changeAlign,
                   align: TextAlign.center,
-                  icon: SvgPicture.asset('assets/appearance/align_icons/align-center.svg'),
+                  icon: SvgPicture.asset(
+                      'assets/appearance/align_icons/align-center.svg'),
                 ),
                 AlignButton(
                   alignFunc: manager.changeAlign,
                   align: TextAlign.right,
-                  icon: SvgPicture.asset('assets/appearance/align_icons/align-right.svg'),
+                  icon: SvgPicture.asset(
+                      'assets/appearance/align_icons/align-right.svg'),
                 ),
               ],
             )
@@ -111,4 +114,3 @@ class FourStringsEnter extends TextInputFormatter {
     );
   }
 }
-

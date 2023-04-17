@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -22,6 +23,7 @@ class NamedRoutesWithParams extends StatelessWidget {
 
     FlutterError.onError = (error) {
       FlutterError.presentError(error);
+      FirebaseCrashlytics.instance.recordFlutterFatalError(error);
       logger.e(error.toString());
       if (kReleaseMode) {
         exit(1);
@@ -30,6 +32,7 @@ class NamedRoutesWithParams extends StatelessWidget {
 
     PlatformDispatcher.instance.onError = (error, stack) {
       logger.e(error.toString());
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
       return true;
     };
 

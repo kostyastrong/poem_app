@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "620834351085",
+    "firebase_url": "https://poemapp-d0967-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "poemapp-d0967",
     "storage_bucket": "poemapp-d0967.appspot.com"
   },
