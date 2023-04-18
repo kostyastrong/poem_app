@@ -15,7 +15,7 @@ class dbPoemManager {
 
   Stream<List<PoemModel>> get poems => poemController.stream;
 
-  late final StreamSubscription _poemSubscribtion;
+  StreamSubscription? _poemSubscribtion;
   final StreamController<List<PoemModel>> poemController =
       StreamController.broadcast();
 
@@ -45,6 +45,9 @@ class dbPoemManager {
   Future<void> initSubscribtion() async {
     if (!isLogin()) {
       return;
+    }
+    if (_poemSubscribtion != null) {
+      _poemSubscribtion!.cancel();
     }
     _poemSubscribtion = FirebaseFirestore.instance
         .collection("poems")

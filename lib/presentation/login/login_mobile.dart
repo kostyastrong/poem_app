@@ -37,7 +37,6 @@ class LoginPage extends ConsumerWidget {
                           AuthStateChangeAction<SignedIn>((context, state) {
                             if (!state.user!.emailVerified) {
                               Navigator.pushNamed(context, '/verify-email');
-                              ref.read(dbManagerProvider).initSubscribtion();
                             } else {
                               Navigator.pushReplacementNamed(
                                   context, '/profile');

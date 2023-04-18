@@ -18,6 +18,8 @@ class HomePage extends ConsumerWidget {
     } else {
       logger.i("Home page build, user is ${FirebaseAuth.instance.currentUser}");
     }
+    
+    ref.read(dbManagerProvider).initSubscribtion();
 
     return Scaffold(
       appBar: AppBar(
