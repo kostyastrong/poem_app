@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:poem_app/domain/db/db_manager.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
 import '../models/poem_model.dart';
@@ -10,8 +9,9 @@ class UserModel {
   UserModel({required this.poems});
 
   factory UserModel.fromDocumentSnapshot(
-      DocumentSnapshot<Map<String, dynamic>> snapshot,
-      SnapshotOptions? options) {
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? options,
+  ) {
     logger.w(snapshot.data()?['poems']['poems']);
     final data =
         List<Map<String, dynamic>>.from(snapshot.data()?['poems']['poems']);
@@ -35,15 +35,14 @@ class UserModel {
   }
 
   Map<String, dynamic> toFirestore() {
-    Map<String, dynamic> poemsCopy = {
-      'poems': [],
-    };
+    List<Map<String, dynamic>> poemsList = [];
     for (final i in poems) {
-      poemsCopy['poems'].add(i.toFirestore());
+      poemsList.add(i.toFirestore());
     }
-    poemsCopy['poems'].add(dbPoemManager.mockPoemModel.toFirestore());
-    return {
-      if (poems != null) "poems": poemsCopy,
+
+    Map<String, dynamic> poemsCopy = {
+      'poems': poemsList,
     };
+    return poemsCopy;
   }
 }

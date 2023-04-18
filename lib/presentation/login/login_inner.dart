@@ -73,28 +73,33 @@ class LoginInner extends ConsumerWidget {
         SizedBox(
           height: 36,
           child: TextButton(
-              style: ThemeButton.blackButton,
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                      flex: 1,
-                      child: SizedBox(
-                          height: 24,
-                          child: Image.asset('assets/images/google.png'))),
-                  const SizedBox(
-                    width: 10,
+            style: ThemeButton.blackButton,
+            onPressed: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: SizedBox(
+                    height: 24,
+                    child: Image.asset('assets/images/google.png'),
                   ),
-                  Flexible(
-                    flex: 2,
-                    child: Text(Lang.of(context).loginWithGoogle,
-                        style: ThemeText.smallBold.copyWith(
-                          color: Colors.white,
-                        )),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Text(
+                    Lang.of(context).loginWithGoogle,
+                    style: ThemeText.smallBold.copyWith(
+                      color: Colors.white,
+                    ),
                   ),
-                ],
-              )),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );

@@ -18,11 +18,11 @@ Future<void> main() async {
   FirebaseUIAuth.configureProviders([
     EmailAuthProvider(),
     GoogleProvider(
-        clientId:
-            '620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com'),
+      clientId:
+          '620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com',
+    ),
   ]);
   FirebaseFirestore.instance;
-
 
   runApp(const NamedRoutesWithParams());
 }

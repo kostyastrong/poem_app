@@ -14,15 +14,17 @@ import 'domain/login/login_sign_up_state.dart';
 final navigation = Provider((ref) => Navigation());
 final loginSignUpProvider =
     StateNotifierProvider<LoginSignUpNotifier, LoginSignUpState>(
-        (ref) => LoginSignUpNotifier());
+  (ref) => LoginSignUpNotifier(),
+);
 final loginManagerProvider =
     Provider((ref) => LoginManager(ref.watch(loginSignUpProvider.notifier)));
 
 final appearProvider = StateNotifierProvider<AppearNotifier, AppearState>(
-    (ref) => AppearNotifier());
+  (ref) => AppearNotifier(),
+);
 final appearManagerProvider =
     Provider((ref) => AppearManager(ref.watch(appearProvider.notifier)));
 
 final authFirebaseProvider = Provider((ref) => FirebaseAuth.instance);
 final dbFirebaseProvider = Provider((ref) => FirebaseFirestore.instance);
-final dbManagerProvider = Provider((ref) => dbPoemManager());
+final dbManagerProvider = Provider((ref) => DbPoemManager());

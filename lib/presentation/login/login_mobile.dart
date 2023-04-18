@@ -15,8 +15,9 @@ class LoginPage extends ConsumerWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/backgrounds/desert.jpg'),
-              fit: BoxFit.cover),
+            image: AssetImage('assets/backgrounds/desert.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Center(
           child: SingleChildScrollView(
@@ -39,7 +40,9 @@ class LoginPage extends ConsumerWidget {
                               Navigator.pushNamed(context, '/verify-email');
                             } else {
                               Navigator.pushReplacementNamed(
-                                  context, '/profile');
+                                context,
+                                '/profile',
+                              );
                             }
                           }),
                         ],

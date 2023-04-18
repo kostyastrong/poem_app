@@ -11,8 +11,9 @@ class DefaultLoginPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/backgrounds/desert.jpg'),
-              fit: BoxFit.cover),
+            image: AssetImage('assets/backgrounds/desert.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),

@@ -6,29 +6,33 @@ class PoemModel {
   final int lastEdited;
   final int index;
 
-  PoemModel(
-      {required this.index,
-      required this.title,
-      required this.poem,
-      required this.lastEdited});
+  PoemModel({
+    required this.index,
+    required this.title,
+    required this.poem,
+    required this.lastEdited,
+  });
 
   factory PoemModel.fromDocumentSnapshot(
-      DocumentSnapshot<Map<String, dynamic>> snapshot,
-      SnapshotOptions? options) {
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? options,
+  ) {
     final data = snapshot.data();
     return PoemModel(
-        title: data?['title'],
-        lastEdited: data?['last_edited'],
-        poem: data?['poem'],
-        index: data?['index']);
+      title: data?['title'],
+      lastEdited: data?['last_edited'],
+      poem: data?['poem'],
+      index: data?['index'],
+    );
   }
 
   factory PoemModel.fromMap(Map<String, dynamic> data) {
     return PoemModel(
-        title: data['title'],
-        lastEdited: data['last_edited'],
-        poem: data['poem'],
-        index: data['index']);
+      title: data['title'],
+      lastEdited: data['last_edited'],
+      poem: data['poem'],
+      index: data['index'],
+    );
   }
 
   Map<String, dynamic> toFirestore() {

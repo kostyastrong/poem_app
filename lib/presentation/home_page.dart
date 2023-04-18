@@ -18,7 +18,7 @@ class HomePage extends ConsumerWidget {
     } else {
       logger.i("Home page build, user is ${FirebaseAuth.instance.currentUser}");
     }
-    
+
     ref.read(dbManagerProvider).initSubscribtion();
 
     return Scaffold(
@@ -28,30 +28,31 @@ class HomePage extends ConsumerWidget {
       body: Column(
         children: [
           Expanded(
-              child: StreamBuilder<List<PoemModel>>(
-            stream: ref.read(dbManagerProvider).poems,
-            builder: (context, snapshot) => snapshot.hasData
-                ? ListView.builder(
-                    itemCount: snapshot.requireData.length,
-                    itemBuilder: (context, index) => PoemCell(
-                      poem: snapshot.requireData[index].poem,
-                      title: snapshot.requireData[index].title,
-                    ),
-                  )
-                : const Text('no data'),
-          )),
+            child: StreamBuilder<List<PoemModel>>(
+              stream: ref.read(dbManagerProvider).poems,
+              builder: (context, snapshot) => snapshot.hasData
+                  ? ListView.builder(
+                      itemCount: snapshot.requireData.length,
+                      itemBuilder: (context, index) => PoemCell(
+                        poem: snapshot.requireData[index].poem,
+                        title: snapshot.requireData[index].title,
+                      ),
+                    )
+                  : const Text('no data'),
+            ),
+          ),
           ElevatedButton(
-              onPressed: () {
-                ref
-                    .watch(navigation)
-                    .pushLogin(); // TODO: read instead of watch?
-              },
-              child: const Text('Login')),
+            onPressed: () {
+              ref.watch(navigation).pushLogin(); // TODO: read instead of watch?
+            },
+            child: const Text('Login'),
+          ),
           ElevatedButton(
-              onPressed: () {
-                ref.watch(navigation).pushEdit();
-              },
-              child: const Text('Edit')),
+            onPressed: () {
+              ref.watch(navigation).pushEdit();
+            },
+            child: const Text('Edit'),
+          ),
           TextButton(
             onPressed: () => throw Exception(),
             child: const Text("Throw Test Exception"),

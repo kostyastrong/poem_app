@@ -29,11 +29,12 @@ class EditPage extends ConsumerWidget {
                 const BackButton(),
                 const Spacer(),
                 TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      Lang.of(context).save,
-                      style: ThemeText.smallBold.copyWith(color: Colors.red),
-                    )),
+                  onPressed: () {},
+                  child: Text(
+                    Lang.of(context).save,
+                    style: ThemeText.smallBold.copyWith(color: Colors.red),
+                  ),
+                ),
               ],
             ),
             TextField(
@@ -52,19 +53,22 @@ class EditPage extends ConsumerWidget {
                   alignFunc: manager.changeAlign,
                   align: TextAlign.left,
                   icon: SvgPicture.asset(
-                      'assets/appearance/align_icons/align-left.svg'),
+                    'assets/appearance/align_icons/align-left.svg',
+                  ),
                 ),
                 AlignButton(
                   alignFunc: manager.changeAlign,
                   align: TextAlign.center,
                   icon: SvgPicture.asset(
-                      'assets/appearance/align_icons/align-center.svg'),
+                    'assets/appearance/align_icons/align-center.svg',
+                  ),
                 ),
                 AlignButton(
                   alignFunc: manager.changeAlign,
                   align: TextAlign.right,
                   icon: SvgPicture.asset(
-                      'assets/appearance/align_icons/align-right.svg'),
+                    'assets/appearance/align_icons/align-right.svg',
+                  ),
                 ),
               ],
             )
@@ -80,7 +84,9 @@ class EditPage extends ConsumerWidget {
 class UpperCaseTextFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     logger.i('UpperCaseFormatter');
     LineSplitter ls = const LineSplitter();
     var lines = ls.convert(newValue.text);
@@ -107,7 +113,9 @@ String firstCapitalized(String value) {
 class FourStringsEnter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     return TextEditingValue(
       text: newValue.text,
       selection: newValue.selection,

@@ -25,9 +25,6 @@ class PoemText extends ConsumerWidget {
         style: ThemeText.defaultPoem,
         maxLines: null,
         textCapitalization: TextCapitalization.sentences,
-        inputFormatters: const [
-          //UpperCaseTextFormatter(),
-        ],
         cursorColor: Colors.red,
         textAlign: alignState.align,
         autofocus: true,
