@@ -21,12 +21,12 @@ class LoginPage extends ConsumerWidget {
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(30),
+              padding: const EdgeInsets.all(30),
               child: SizedBox(
                 width: 400,
                 height: 500,
                 child: DecoratedBox(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white70,
                   ),
                   child: Center(
@@ -37,6 +37,7 @@ class LoginPage extends ConsumerWidget {
                           AuthStateChangeAction<SignedIn>((context, state) {
                             if (!state.user!.emailVerified) {
                               Navigator.pushNamed(context, '/verify-email');
+                              ref.read(dbManagerProvider).initSubscribtion();
                             } else {
                               Navigator.pushReplacementNamed(
                                   context, '/profile');

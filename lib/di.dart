@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/domain/edit/appearance/appearance_manager.dart';
 import 'package:poem_app/domain/edit/appearance/appearance_notifier.dart';
@@ -22,5 +23,6 @@ final appearProvider = StateNotifierProvider<AppearNotifier, AppearState>(
 final appearManagerProvider =
     Provider((ref) => AppearManager(ref.watch(appearProvider.notifier)));
 
-final dbProvider = Provider((ref) => FirebaseFirestore.instance);
-final dbManagerProvider = Provider((ref) => dbManager());
+final authFirebaseProvider = Provider((ref) => FirebaseAuth.instance);
+final dbFirebaseProvider = Provider((ref) => FirebaseFirestore.instance);
+final dbManagerProvider = Provider((ref) => dbPoemManager());

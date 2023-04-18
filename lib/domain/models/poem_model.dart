@@ -23,6 +23,14 @@ class PoemModel {
         index: data?['index']);
   }
 
+  factory PoemModel.fromMap(Map<String, dynamic> data) {
+    return PoemModel(
+        title: data['title'],
+        lastEdited: data['last_edited'],
+        poem: data['poem'],
+        index: data['index']);
+  }
+
   Map<String, dynamic> toFirestore() {
     return {
       if (title != null) "title": title,

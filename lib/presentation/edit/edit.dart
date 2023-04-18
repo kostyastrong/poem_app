@@ -21,13 +21,13 @@ class EditPage extends ConsumerWidget {
     final manager = ref.watch(appearManagerProvider);
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Row(
               children: [
-                BackButton(),
-                Spacer(),
+                const BackButton(),
+                const Spacer(),
                 TextButton(
                     onPressed: () {},
                     child: Text(
@@ -44,7 +44,7 @@ class EditPage extends ConsumerWidget {
               style: ThemeText.defaultPoemTitle,
               textCapitalization: TextCapitalization.words,
             ),
-            Expanded(child: PoemText()),
+            const Expanded(child: PoemText()),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

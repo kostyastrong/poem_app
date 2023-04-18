@@ -4,7 +4,6 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:poem_app/domain/db/db_manager.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
 import '/firebase_options.dart';
@@ -23,8 +22,6 @@ Future<void> main() async {
             '620834351085-5sg0k2tiekvuem9lf6v8vg9rq512o66s.apps.googleusercontent.com'),
   ]);
   FirebaseFirestore.instance;
-
-  dbManager.addPoemDefPoem();
 
   runApp(const NamedRoutesWithParams());
 }

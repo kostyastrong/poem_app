@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'login_sign_up_state.dart';
 
 class LoginSignUpNotifier extends StateNotifier<LoginSignUpState> {
-  LoginSignUpNotifier() : super(LoginSignUpState.login());
+  LoginSignUpNotifier() : super(const LoginSignUpState.login());
 
   void changeToSignUp() {
     state = const LoginSignUpState.signup();

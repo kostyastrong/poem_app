@@ -16,8 +16,8 @@ class AlignButton extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.red[50],
-          shape: CircleBorder(),
-          side: BorderSide(color: Colors.red, width: 2),
+          shape: const CircleBorder(),
+          side: const BorderSide(color: Colors.red, width: 2),
         ),
         onPressed: () {
           alignFunc(align);
