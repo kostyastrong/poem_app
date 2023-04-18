@@ -91,20 +91,20 @@ class Authentication {
     } on FirebaseAuthException catch (e) {
       if (context.mounted) {
         await showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: Text(Lang.of(context).errorMessage),
-          content: Text(e.toString()),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(ctx).pop();
-              },
-              child: Text(Lang.of(context).ok),
-            )
-          ],
-        ),
-      );
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text(Lang.of(context).errorMessage),
+            content: Text(e.toString()),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                },
+                child: Text(Lang.of(context).ok),
+              )
+            ],
+          ),
+        );
       }
     }
   }
