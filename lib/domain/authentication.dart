@@ -13,7 +13,10 @@ class Authentication {
   Stream<User?> get authStateChange => _auth.authStateChanges();
 
   Future<void> signInWithEmailAndPassword(
-      String email, String password, BuildContext context,) async {
+    String email,
+    String password,
+    BuildContext context,
+  ) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
@@ -24,10 +27,11 @@ class Authentication {
           content: Text(e.toString()),
           actions: [
             TextButton(
-                onPressed: () {
-                  Navigator.of(ctx).pop();
-                },
-                child: Text(Lang.of(context).ok),)
+              onPressed: () {
+                Navigator.of(ctx).pop();
+              },
+              child: Text(Lang.of(context).ok),
+            )
           ],
         ),
       );
@@ -35,7 +39,10 @@ class Authentication {
   }
 
   Future<void> signUpWithEmailAndPassword(
-      String email, String password, BuildContext context,) async {
+    String email,
+    String password,
+    BuildContext context,
+  ) async {
     try {
       _auth.createUserWithEmailAndPassword(
         email: email,
@@ -43,17 +50,20 @@ class Authentication {
       );
     } on FirebaseAuthException catch (e) {
       await showDialog(
-          context: context,
-          builder: (ctx) => AlertDialog(
-              title: Text(Lang.of(context).errorMessage),
-              content: Text(e.toString()),
-              actions: [
-                TextButton(
-                    onPressed: () {
-                      Navigator.of(ctx).pop();
-                    },
-                    child: Text(Lang.of(context).ok),)
-              ],),);
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(Lang.of(context).errorMessage),
+          content: Text(e.toString()),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+              },
+              child: Text(Lang.of(context).ok),
+            )
+          ],
+        ),
+      );
     } catch (e) {
       if (e == 'email-already-in-use') {
         // print('Email already in use.');
@@ -69,7 +79,7 @@ class Authentication {
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication googleAuth =
-    await googleUser!.authentication;
+        await googleUser!.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
@@ -87,10 +97,11 @@ class Authentication {
           content: Text(e.toString()),
           actions: [
             TextButton(
-                onPressed: () {
-                  Navigator.of(ctx).pop();
-                },
-                child: Text(Lang.of(context).ok),)
+              onPressed: () {
+                Navigator.of(ctx).pop();
+              },
+              child: Text(Lang.of(context).ok),
+            )
           ],
         ),
       );

@@ -8,7 +8,6 @@ import 'package:poem_app/presentation/theme/theme.dart';
 
 import 'domain/firebase_options.dart';
 
-
 Future<void> main() async {
   // Slow down time to see lerping.
   timeDilation = 0.5;

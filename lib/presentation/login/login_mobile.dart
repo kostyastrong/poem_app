@@ -5,7 +5,6 @@ import 'package:poem_app/presentation/login/forgotPassInner.dart';
 import 'package:poem_app/presentation/login/login_inner.dart';
 import 'singup_inner.dart';
 
-
 class LoginPage extends ConsumerWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -17,8 +16,9 @@ class LoginPage extends ConsumerWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/backgrounds/desert.jpg'),
-              fit: BoxFit.cover,),
+            image: AssetImage('assets/backgrounds/desert.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Center(
           child: SingleChildScrollView(
@@ -35,8 +35,10 @@ class LoginPage extends ConsumerWidget {
                     child: SizedBox(
                       width: 300,
                       child: stateLoginSignUp.when(
-                          login: () => const LoginInner(), signup: () => const SignUpInner(),
-                      forgotPass: () => const ForgotPassInner(),),
+                        login: () => const LoginInner(),
+                        signup: () => const SignUpInner(),
+                        forgotPass: () => const ForgotPassInner(),
+                      ),
                     ),
                   ),
                 ),

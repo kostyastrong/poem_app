@@ -15,7 +15,6 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPageState extends State<EditPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,11 +27,12 @@ class _EditPageState extends State<EditPage> {
                 const BackButton(),
                 const Spacer(),
                 TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      Lang.of(context).save,
-                      style: ThemeText.smallBold.copyWith(color: Colors.red),
-                    ),),
+                  onPressed: () {},
+                  child: Text(
+                    Lang.of(context).save,
+                    style: ThemeText.smallBold.copyWith(color: Colors.red),
+                  ),
+                ),
               ],
             ),
             TextField(
@@ -48,41 +48,47 @@ class _EditPageState extends State<EditPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[50],
-                      shape: const CircleBorder(),
-                      side: const BorderSide(color: Colors.red, width: 2),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red[50],
+                    shape: const CircleBorder(),
+                    side: const BorderSide(color: Colors.red, width: 2),
+                  ),
+                  onPressed: () {},
+                  child: Center(
+                    child: Text(
+                      '1',
+                      style: ThemeText.smallBold,
                     ),
-                    onPressed: () {},
-                    child: Center(
-                        child: Text(
-                          '1',
-                          style: ThemeText.smallBold,
-                        ),),),
+                  ),
+                ),
                 ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[50],
-                      shape: const CircleBorder(),
-                      side: const BorderSide(color: Colors.red, width: 2),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red[50],
+                    shape: const CircleBorder(),
+                    side: const BorderSide(color: Colors.red, width: 2),
+                  ),
+                  onPressed: () {},
+                  child: Center(
+                    child: Text(
+                      '2',
+                      style: ThemeText.smallBold,
                     ),
-                    onPressed: () {},
-                    child: Center(
-                        child: Text(
-                          '2',
-                          style: ThemeText.smallBold,
-                        ),),),
+                  ),
+                ),
                 ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[50],
-                      shape: const CircleBorder(),
-                      side: const BorderSide(color: Colors.red, width: 2),
-                    ),
-                    onPressed: () {},
-                    child: Center(
-                        child: Text(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red[50],
+                    shape: const CircleBorder(),
+                    side: const BorderSide(color: Colors.red, width: 2),
+                  ),
+                  onPressed: () {},
+                  child: Center(
+                    child: Text(
                       '3',
-                          style: ThemeText.smallBold,
-                    ),),),
+                      style: ThemeText.smallBold,
+                    ),
+                  ),
+                ),
               ],
             )
           ],
@@ -128,7 +134,9 @@ class _PoemTextState extends State<PoemText> {
 class UpperCaseTextFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue,) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     logger.i('UpperCaseFormatter');
     LineSplitter ls = const LineSplitter();
     var lines = ls.convert(newValue.text);
@@ -155,7 +163,9 @@ String firstCapitalized(String value) {
 class FourStringsEnter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue,) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     return TextEditingValue(
       text: newValue.text,
       selection: newValue.selection,

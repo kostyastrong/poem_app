@@ -18,15 +18,17 @@ class HomePage extends ConsumerWidget {
           const Text('el2'),
           const Text('el3'),
           ElevatedButton(
-              onPressed: () {
-                ref.watch(navigation).pushLogin();
-              },
-              child: const Text('Login'),),
+            onPressed: () {
+              ref.watch(navigation).pushLogin();
+            },
+            child: const Text('Login'),
+          ),
           ElevatedButton(
-              onPressed: () {
-                ref.watch(navigation).pushEdit();
-              },
-              child: const Text('Edit'),),
+            onPressed: () {
+              ref.watch(navigation).pushEdit();
+            },
+            child: const Text('Edit'),
+          ),
         ],
       ),
     );

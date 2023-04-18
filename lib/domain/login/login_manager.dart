@@ -1,6 +1,5 @@
 import 'package:poem_app/domain/login/login_sign_up_notifier.dart';
 
-
 class LoginManager {
   final LoginSignUpNotifier loginSignUpNotifier;
 

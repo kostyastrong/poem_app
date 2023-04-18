@@ -11,7 +11,8 @@ final navigation = Provider((ref) => Navigation());
 final authenticationProvider = Provider((ref) => Authentication());
 final loginSignUpProvider =
     StateNotifierProvider<LoginSignUpNotifier, LoginSignUpState>(
-        (ref) => LoginSignUpNotifier(),);
+  (ref) => LoginSignUpNotifier(),
+);
 final managerProvider =
     Provider((ref) => LoginManager(ref.watch(loginSignUpProvider.notifier)));
 
