@@ -20,7 +20,9 @@ abstract class ThemeButton {
     return ElevatedButton(
       onPressed: func,
       style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor, shape: const CircleBorder()),
+        backgroundColor: backgroundColor,
+        shape: const CircleBorder(),
+      ),
       child: icon,
     );
   }
