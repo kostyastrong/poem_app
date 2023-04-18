@@ -10,7 +10,6 @@ import 'navigation.dart';
 import 'routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-
 var logger = CustomLogger.initLogger();
 
 class NamedRoutesWithParams extends StatelessWidget {

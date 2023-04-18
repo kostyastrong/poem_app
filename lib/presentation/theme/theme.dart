@@ -1,35 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:poem_app/domain/theme/theme_manager.dart';
+import 'package:poem_app/domain/theme/theme_state_holder.dart';
 
-@immutable
-class MyColors extends ThemeExtension<MyColors> {
-  const MyColors({
-    required this.brandColor,
-    required this.danger,
-  });
+class ThemeWidget extends ConsumerWidget {
+  final Widget child;
 
-  final Color? brandColor;
-  final Color? danger;
+  const ThemeWidget({required this.child, super.key});
 
   @override
-  MyColors copyWith({Color? brandColor, Color? danger}) {
-    return MyColors(
-      brandColor: brandColor ?? this.brandColor,
-      danger: danger ?? this.danger,
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(themeManagerProvider);
+
+    final state = ref.watch(themeStateHolderProvider);
+
+    return Theme(
+      data: state == ThemeEnum.dark ? ThemeData.dark() : ThemeData.light(),
+      child: child,
     );
   }
-
-  @override
-  MyColors lerp(MyColors? other, double t) {
-    if (other is! MyColors) {
-      return this;
-    }
-    return MyColors(
-      brandColor: Color.lerp(brandColor, other.brandColor, t),
-      danger: Color.lerp(danger, other.danger, t),
-    );
-  }
-
-  // Optional
-  @override
-  String toString() => 'MyColors(brandColor: $brandColor, danger: $danger)';
 }

@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '620834351085',
     projectId: 'poemapp-d0967',
     storageBucket: 'poemapp-d0967.appspot.com',
-    iosClientId: '620834351085-v0odo22mk6cmrahad6ueb63qje2ls8ij.apps.googleusercontent.com',
+    iosClientId:
+        '620834351085-v0odo22mk6cmrahad6ueb63qje2ls8ij.apps.googleusercontent.com',
     iosBundleId: 'com.example.poemApp',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '620834351085',
     projectId: 'poemapp-d0967',
     storageBucket: 'poemapp-d0967.appspot.com',
-    iosClientId: '620834351085-v0odo22mk6cmrahad6ueb63qje2ls8ij.apps.googleusercontent.com',
+    iosClientId:
+        '620834351085-v0odo22mk6cmrahad6ueb63qje2ls8ij.apps.googleusercontent.com',
     iosBundleId: 'com.example.poemApp',
   );
 }

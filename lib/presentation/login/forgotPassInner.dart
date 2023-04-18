@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poem_app/presentation/login/pass_form.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
 import '../lang.dart';
@@ -17,9 +14,7 @@ class ForgotPassInner extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     logger.i('forgotPassPage');
 
-    FirebaseAuth.instance
-        .authStateChanges()
-        .listen((User? user) {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user != null) {
         logger.i(user.uid);
       } else {
@@ -47,14 +42,10 @@ class ForgotPassInner extends ConsumerWidget {
           child: TextButton(
             onPressed: () {},
             style: ThemeButton.redButton,
-            child:
-                Text(Lang.of(context).resetPass, style: ThemeText.smallBold),
+            child: Text(Lang.of(context).resetPass, style: ThemeText.smallBold),
           ),
         ),
       ],
     );
   }
 }
-
-
-
