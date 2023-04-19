@@ -4,18 +4,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
+import '../edit/changing_poem/poems_notifier.dart';
 import '../models/poem_model.dart';
 import '../models/user_model.dart';
 
 class DbPoemManager {
+  final PoemsNotifier _poemsNotifier;
   User? currentUser;
   FirebaseFirestore? db;
 
-  Stream<List<PoemModel>> get poems => poemController.stream;
+  DbPoemManager(this._poemsNotifier);
 
-  StreamSubscription? _poemSubscribtion;
-  final StreamController<List<PoemModel>> poemController =
-      StreamController.broadcast();
+  StreamSubscription? _poemsSubscription;
 
   void updateLogin() {
     currentUser = FirebaseAuth.instance.currentUser;
@@ -41,20 +41,18 @@ class DbPoemManager {
     lastEdited: 666,
   );
 
-  Future<void> initSubscribtion() async {
+  Future<void> init() async {
     if (!isLogin()) {
       return;
     }
-    if (_poemSubscribtion != null) {
-      _poemSubscribtion!.cancel();
-    }
-    _poemSubscribtion = FirebaseFirestore.instance
+
+    _poemsSubscription ??= FirebaseFirestore.instance
         .collection("poems")
         .doc(currentUser?.uid)
         .snapshots()
         .listen((snapshot) {
       final userModel = UserModel.fromDocumentSnapshot(snapshot, null);
-      poemController.add(userModel.poems);
+      _poemsNotifier.updatePoems(userModel.poems);
     });
   }
 
@@ -64,18 +62,15 @@ class DbPoemManager {
     }
     logger.i("Add poem to user");
 
-    // final docRef = FirebaseFirestore.instance
-    //     .collection("poems")
-    //     .withConverter(
-    //       fromFirestore: UserModel.fromDocumentSnapshot,
-    //       toFirestore: (UserModel, options) => UserModel.toFirestore(),
-    //     )
-    //     .doc(currentUser?.uid);
-    // await docRef.set(UserModel(poems: [mockPoemModel]));
-    logger.i('Def Poem Added');
+    throw Exception("adding is not defined");
   }
 
   Future<void> addPoemDefPoem() async {
     await addPoem(mockPoemModel);
+  }
+
+  void dispose() {
+    _poemsSubscription?.cancel();
+    _poemsSubscription = null;
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:poem_app/domain/models/poem_model.dart';
 
 import '../../di.dart';
 import '../../domain/navigation/named_routes.dart';
@@ -8,12 +9,30 @@ import '../styles/texts.dart';
 import 'edit.dart';
 
 class PoemText extends ConsumerWidget {
-  const PoemText({Key? key}) : super(key: key);
+  PoemText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final alignState = ref.watch(appearProvider);
-    logger.i("Main edit field for poem build");
+    final poemState = ref.watch(poemEditNotifier);
+    logger.i("Main edit field for poem build, poem index: ${poemState.poemEditIndex}");
+
+    final editManager = ref.watch(poemEditManager);
+
+    String startTextPoem = "";
+    if (editManager.poemIsCreatedBefore()) {
+      startTextPoem = ref
+          .read(
+          poemsNotifierProvider)[ref
+          .read(poemEditNotifier)
+          .poemEditIndex!]
+          .poem; // should i make it with manager?
+    }
+    final controller = TextEditingController();
+    controller.value = TextEditingValue(
+      text: startTextPoem,
+      selection: TextSelection.fromPosition(
+          TextPosition(offset: startTextPoem.length)),
+    );
 
     return SingleChildScrollView(
       child: TextField(
@@ -26,9 +45,10 @@ class PoemText extends ConsumerWidget {
         maxLines: null,
         textCapitalization: TextCapitalization.sentences,
         cursorColor: Colors.red,
-        textAlign: alignState.align,
+        textAlign: poemState.align,
         autofocus: true,
         keyboardType: TextInputType.multiline,
+        controller: controller,
       ),
     );
   }

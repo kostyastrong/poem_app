@@ -19,7 +19,8 @@ class HomePage extends ConsumerWidget {
       logger.i("Home page build, user is ${FirebaseAuth.instance.currentUser}");
     }
 
-    ref.read(dbManagerProvider).initSubscribtion();
+    ref.read(dbPoemsManagerProvider);
+    final allPoemsState = ref.watch(poemsNotifierProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -28,28 +29,25 @@ class HomePage extends ConsumerWidget {
       body: Column(
         children: [
           Expanded(
-            child: StreamBuilder<List<PoemModel>>(
-              stream: ref.read(dbManagerProvider).poems,
-              builder: (context, snapshot) => snapshot.hasData
-                  ? ListView.builder(
-                      itemCount: snapshot.requireData.length,
-                      itemBuilder: (context, index) => PoemCell(
-                        poem: snapshot.requireData[index].poem,
-                        title: snapshot.requireData[index].title,
-                      ),
-                    )
-                  : const Text('no data'),
-            ),
+            child: allPoemsState.isNotEmpty
+                ? ListView.builder(
+                    itemCount: allPoemsState.length,
+                    itemBuilder: (context, index) => PoemCell(
+                      poemModel: allPoemsState[index],
+                    ),
+                  )
+                : const Text('no data, sign in'),
           ),
           ElevatedButton(
             onPressed: () {
-              ref.watch(navigation).pushLogin(); // TODO: read instead of watch?
+              ref.read(navigation).pushLogin();
             },
             child: const Text('Login'),
           ),
           ElevatedButton(
             onPressed: () {
-              ref.watch(navigation).pushEdit();
+              ref.read(poemEditManager).updatePoemEditIndex(null);
+              ref.read(navigation).pushEdit();
             },
             child: const Text('Edit'),
           ),
@@ -63,42 +61,46 @@ class HomePage extends ConsumerWidget {
   }
 }
 
-class PoemCell extends StatelessWidget {
-  const PoemCell({Key? key, required this.poem, required this.title})
-      : super(key: key);
+class PoemCell extends ConsumerWidget {
+  const PoemCell({Key? key, required this.poemModel}) : super(key: key);
 
-  final String poem;
-  final String title;
+  final PoemModel poemModel;
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 2.0),
-            child: Container(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                title,
-                maxLines: 1,
-                style: ThemeText.titleCell,
+  Widget build(BuildContext context, WidgetRef ref) {
+    return GestureDetector(
+      onTap: () {
+        ref.read(poemEditManager).updatePoemEditIndex(poemModel.index);
+        ref.read(navigation).pushEdit();
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 2.0),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  poemModel.title,
+                  maxLines: 1,
+                  style: ThemeText.titleCell,
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          Text(
-            poem,
-            maxLines: 2,
-            style: ThemeText.poemCell,
-          )
-        ],
+            const SizedBox(
+              height: 2,
+            ),
+            Text(
+              poemModel.poem,
+              maxLines: 2,
+              style: ThemeText.poemCell,
+            )
+          ],
+        ),
       ),
     );
   }

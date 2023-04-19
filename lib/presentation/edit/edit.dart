@@ -18,7 +18,9 @@ class EditPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     logger.i("Edit page build");
-    final manager = ref.watch(appearManagerProvider);
+    final editManager = ref.watch(poemEditManager);
+
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -31,7 +33,9 @@ class EditPage extends ConsumerWidget {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    Lang.of(context).save,
+                    Lang
+                        .of(context)
+                        .save,
                     style: ThemeText.smallBold.copyWith(color: Colors.red),
                   ),
                 ),
@@ -39,32 +43,34 @@ class EditPage extends ConsumerWidget {
             ),
             TextField(
               decoration: InputDecoration(
-                hintText: firstCapitalized(Lang.of(context).title),
+                hintText: firstCapitalized(Lang
+                    .of(context)
+                    .title),
                 border: InputBorder.none,
               ),
               style: ThemeText.defaultPoemTitle,
               textCapitalization: TextCapitalization.words,
             ),
-            const Expanded(child: PoemText()),
+            Expanded(child: PoemText()),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AlignButton(
-                  alignFunc: manager.changeAlign,
+                  alignFunc: editManager.changeAlign,
                   align: TextAlign.left,
                   icon: SvgPicture.asset(
                     'assets/appearance/align_icons/align-left.svg',
                   ),
                 ),
                 AlignButton(
-                  alignFunc: manager.changeAlign,
+                  alignFunc: editManager.changeAlign,
                   align: TextAlign.center,
                   icon: SvgPicture.asset(
                     'assets/appearance/align_icons/align-center.svg',
                   ),
                 ),
                 AlignButton(
-                  alignFunc: manager.changeAlign,
+                  alignFunc: editManager.changeAlign,
                   align: TextAlign.right,
                   icon: SvgPicture.asset(
                     'assets/appearance/align_icons/align-right.svg',
@@ -83,10 +89,8 @@ class EditPage extends ConsumerWidget {
 // those letters which user has not made capitalized on purpose
 class UpperCaseTextFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-    TextEditingValue oldValue,
-    TextEditingValue newValue,
-  ) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue,
+      TextEditingValue newValue,) {
     logger.i('UpperCaseFormatter');
     LineSplitter ls = const LineSplitter();
     var lines = ls.convert(newValue.text);
@@ -112,10 +116,8 @@ String firstCapitalized(String value) {
 
 class FourStringsEnter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-    TextEditingValue oldValue,
-    TextEditingValue newValue,
-  ) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue,
+      TextEditingValue newValue,) {
     return TextEditingValue(
       text: newValue.text,
       selection: newValue.selection,
