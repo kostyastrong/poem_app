@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poem_app/presentation/lang.dart';
 
 import 'routes.dart';
 

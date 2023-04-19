@@ -19,18 +19,12 @@ class DbPoemManager {
 
   void updateLogin() {
     currentUser = FirebaseAuth.instance.currentUser;
-    if (currentUser != null) {
-      db = FirebaseFirestore.instance;
-    }
+    db ??= FirebaseFirestore.instance;
   }
 
-  bool isLogin() {
+  bool _isLogin() {
     updateLogin();
-    if (currentUser == null) {
-      return false;
-    } else {
-      return true;
-    }
+    return currentUser != null;
   }
 
   static final mockPoemModel = PoemModel(
@@ -42,7 +36,7 @@ class DbPoemManager {
   );
 
   Future<void> init() async {
-    if (!isLogin()) {
+    if (!_isLogin()) {
       return;
     }
 
@@ -57,7 +51,7 @@ class DbPoemManager {
   }
 
   Future<void> addPoem(PoemModel poem) async {
-    if (!isLogin()) {
+    if (!_isLogin()) {
       return;
     }
     logger.i("Add poem to user");

@@ -40,14 +40,14 @@ class HomePage extends ConsumerWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              ref.read(navigation).pushLogin();
+              ref.read(navigationProvider).pushLogin();
             },
             child: const Text('Login'),
           ),
           ElevatedButton(
             onPressed: () {
               ref.read(poemEditManager).updatePoemEditIndex(null);
-              ref.read(navigation).pushEdit();
+              ref.read(navigationProvider).pushEdit();
             },
             child: const Text('Edit'),
           ),
@@ -71,7 +71,7 @@ class PoemCell extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
         ref.read(poemEditManager).updatePoemEditIndex(poemModel.index);
-        ref.read(navigation).pushEdit();
+        ref.read(navigationProvider).pushEdit();
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

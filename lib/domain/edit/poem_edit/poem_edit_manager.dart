@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import 'package:poem_app/domain/edit/poem_edit/poem_edit_notifier.dart';
 
-
-
 class PoemEditManager {
   final PoemEditNotifier poemEditNotifier;
 
@@ -18,5 +16,4 @@ class PoemEditManager {
   }
 
   void updatePoemEditIndex(int? index) => poemEditNotifier.updateIndex(index);
-
 }

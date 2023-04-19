@@ -12,12 +12,9 @@ class CircleTapButton extends StatelessWidget {
   CircleTapButton({
     Key? key,
     this.func,
-    Widget? icon,
-    Color backgroundColor = const Color.fromRGBO(237, 190, 190, 1.0),
-  }) : super(key: key) {
-    this.backgroundColor = backgroundColor;
-    this.icon = icon;
-  }
+    this.icon,
+    this.backgroundColor = const Color.fromRGBO(237, 190, 190, 1.0),
+  }) : super(key: key);
 
   final func;
   late final Color backgroundColor;

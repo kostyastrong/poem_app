@@ -13,7 +13,7 @@ import 'domain/login/login_sign_up_notifier.dart';
 import 'domain/login/login_sign_up_state.dart';
 import 'domain/models/poem_model.dart';
 
-final navigation = Provider((ref) => Navigation());
+final navigationProvider = Provider((ref) => Navigation());
 final loginSignUpProvider =
     StateNotifierProvider<LoginSignUpNotifier, LoginSignUpState>(
   (ref) => LoginSignUpNotifier(),
@@ -32,8 +32,9 @@ final dbFirebaseProvider = Provider((ref) => FirebaseFirestore.instance);
 
 final poemsNotifierProvider =
     StateNotifierProvider<PoemsNotifier, List<PoemModel>>(
-        (ref) => PoemsNotifier());
+  (ref) => PoemsNotifier(),
+);
 
-final dbPoemsManagerProvider =
-    Provider((ref) => DbPoemManager(ref.watch(poemsNotifierProvider.notifier))..init());
-
+final dbPoemsManagerProvider = Provider(
+  (ref) => DbPoemManager(ref.watch(poemsNotifierProvider.notifier))..init(),
+);

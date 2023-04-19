@@ -1,12 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
 import '../models/poem_model.dart';
 
+part 'user_model.g.dart';
+
+@JsonSerializable()
 class UserModel {
   final List<PoemModel> poems;
 
-  UserModel({required this.poems});
+  const UserModel({required this.poems});
 
   factory UserModel.fromDocumentSnapshot(
     DocumentSnapshot<Map<String, dynamic>> snapshot,
@@ -17,7 +21,7 @@ class UserModel {
         List<Map<String, dynamic>>.from(snapshot.data()?['poems']['poems']);
     List<PoemModel> poemsTemp = [];
     for (var poem in data) {
-      poemsTemp.add(PoemModel.fromMap(poem));
+      poemsTemp.add(PoemModel.fromJson(poem));
     }
     poemsTemp.sort((a, b) => a.lastEdited.compareTo(b.lastEdited));
     return UserModel(poems: poemsTemp);
@@ -29,7 +33,7 @@ class UserModel {
     final data = map['poems'];
     List<PoemModel> poemsTemp = [];
     for (var poem in data!) {
-      poemsTemp.add(PoemModel.fromMap(poem));
+      poemsTemp.add(PoemModel.fromJson(poem));
     }
     return UserModel(poems: poemsTemp);
   }
@@ -37,7 +41,7 @@ class UserModel {
   Map<String, dynamic> toFirestore() {
     List<Map<String, dynamic>> poemsList = [];
     for (final i in poems) {
-      poemsList.add(i.toFirestore());
+      poemsList.add(i.toJson());
     }
 
     Map<String, dynamic> poemsCopy = {

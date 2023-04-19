@@ -1,5 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'poem_model.g.dart';
+
+@JsonSerializable()
 class PoemModel {
   final String title;
   final String poem;
@@ -26,7 +30,8 @@ class PoemModel {
     );
   }
 
-  factory PoemModel.fromMap(Map<String, dynamic> data) {
+  // TODO: fails when trying to do with json_serializable
+  factory PoemModel.fromJson(Map<String, dynamic> data) {
     return PoemModel(
       title: data['title'],
       lastEdited: data['last_edited'],
@@ -35,12 +40,8 @@ class PoemModel {
     );
   }
 
-  Map<String, dynamic> toFirestore() {
-    return {
-      if (title != null) "title": title,
-      if (poem != null) "poem": poem,
-      if (lastEdited != null) "last_edited": lastEdited,
-      if (index != null) "index": index,
-    };
-  }
+  // factory PoemModel.fromJson(Map<String, dynamic> data) =>
+  //     _$PoemModelFromJson(data);
+
+  Map<String, dynamic> toJson() => _$PoemModelToJson(this);
 }

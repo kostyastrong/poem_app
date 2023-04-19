@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poem_app/domain/models/poem_model.dart';
 
 import '../../di.dart';
 import '../../domain/navigation/named_routes.dart';
@@ -9,12 +8,14 @@ import '../styles/texts.dart';
 import 'edit.dart';
 
 class PoemText extends ConsumerWidget {
-  PoemText({Key? key}) : super(key: key);
+  const PoemText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final poemState = ref.watch(poemEditNotifier);
-    logger.i("Main edit field for poem build, poem index: ${poemState.poemEditIndex}");
+    logger.i(
+      "Main edit field for poem build, poem index: ${poemState.poemEditIndex}",
+    );
 
     final editManager = ref.watch(poemEditManager);
 
@@ -22,16 +23,16 @@ class PoemText extends ConsumerWidget {
     if (editManager.poemIsCreatedBefore()) {
       startTextPoem = ref
           .read(
-          poemsNotifierProvider)[ref
-          .read(poemEditNotifier)
-          .poemEditIndex!]
-          .poem; // should i make it with manager?
+            poemsNotifierProvider,
+          )[ref.read(poemEditNotifier).poemEditIndex!]
+          .poem; // TODO: should i make it with manager?
     }
     final controller = TextEditingController();
     controller.value = TextEditingValue(
       text: startTextPoem,
       selection: TextSelection.fromPosition(
-          TextPosition(offset: startTextPoem.length)),
+        TextPosition(offset: startTextPoem.length),
+      ),
     );
 
     return SingleChildScrollView(

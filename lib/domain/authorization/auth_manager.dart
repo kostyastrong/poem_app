@@ -9,14 +9,22 @@ class AuthManager {
   StreamSubscription<User?>? subscription;
 
   AuthManager(this.authNotifier);
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+    authNotifier.state = authNotifier.state.copyWith(user: null);
+  }
+
+  void signIn(User user) {
+    authNotifier.state = authNotifier.state.copyWith(user: user);
+  }
 
   void init() {
     subscription ??=
         FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-        authNotifier.signOut();
+        signOut();
       } else {
-        authNotifier.signIn(user);
+        signIn(user);
       }
     });
   }

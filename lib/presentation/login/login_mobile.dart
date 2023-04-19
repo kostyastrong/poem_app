@@ -37,12 +37,12 @@ class LoginPage extends ConsumerWidget {
                         actions: [
                           AuthStateChangeAction<SignedIn>((context, state) {
                             if (!state.user!.emailVerified) {
-                              Navigator.pushNamed(context, '/verify-email');
+                              ref
+                                  .read(navigationProvider)
+                                  .pushHome(); // TODO: make verify-email page
                             } else {
-                              Navigator.pushReplacementNamed(
-                                context,
-                                '/profile',
-                              );
+                              ref.read(navigationProvider).pushHome();
+                              // TODO: make profile page
                             }
                           }),
                         ],
