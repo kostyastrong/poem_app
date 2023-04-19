@@ -39,7 +39,7 @@ jobs:
       - run: flutter test
   build-android:
     needs: run-tests
-    #if: "!(github.ref == 'refs/heads/release')"
+    if: "!(github.ref == 'refs/heads/release')"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -69,7 +69,7 @@ jobs:
   build-android-release:
     needs: run-tests
     runs-on: ubuntu-latest
-    #if: "github.ref == 'refs/heads/release'"
+    if: "github.ref == 'refs/heads/release'"
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
