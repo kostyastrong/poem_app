@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/di.dart';
-import 'package:poem_app/presentation/login/forgotPassInner.dart';
+import 'package:poem_app/presentation/login/forgot_pass_inner.dart';
 import 'package:poem_app/presentation/login/login_inner.dart';
 import 'singup_inner.dart';
 
