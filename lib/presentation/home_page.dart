@@ -14,9 +14,6 @@ class HomePage extends ConsumerWidget {
       ),
       body: ListView(
         children: [
-          const Text('el1'),
-          const Text('el2'),
-          const Text('el3'),
           ElevatedButton(
             onPressed: () {
               ref.watch(navigation).pushLogin();
@@ -28,6 +25,12 @@ class HomePage extends ConsumerWidget {
               ref.watch(navigation).pushEdit();
             },
             child: const Text('Edit'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              ref.watch(navigation).pushSettings();
+            },
+            child: const Text('Settings'),
           ),
         ],
       ),
