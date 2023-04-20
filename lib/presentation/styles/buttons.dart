@@ -23,7 +23,9 @@ class CircleTapButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {func();},
+      onPressed: () {
+        func();
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         shape: const CircleBorder(),

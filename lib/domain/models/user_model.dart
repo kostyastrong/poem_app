@@ -1,12 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:json_annotation/json_annotation.dart';
+
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
 import '../models/poem_model.dart';
 
-part 'user_model.g.dart';
-
-@JsonSerializable()
 class UserModel {
   final List<PoemModel> poems;
 
