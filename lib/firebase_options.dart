@@ -49,6 +49,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '620834351085',
     projectId: 'poemapp-d0967',
     authDomain: 'poemapp-d0967.firebaseapp.com',
+    databaseURL:
+        'https://poemapp-d0967-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'poemapp-d0967.appspot.com',
     measurementId: 'G-EVKK6SE74X',
   );
@@ -58,6 +60,8 @@ class DefaultFirebaseOptions {
     appId: '1:620834351085:android:84105dcb55ddb19099e9e4',
     messagingSenderId: '620834351085',
     projectId: 'poemapp-d0967',
+    databaseURL:
+        'https://poemapp-d0967-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'poemapp-d0967.appspot.com',
   );
 
@@ -66,6 +70,8 @@ class DefaultFirebaseOptions {
     appId: '1:620834351085:ios:285bafc7a4fab32c99e9e4',
     messagingSenderId: '620834351085',
     projectId: 'poemapp-d0967',
+    databaseURL:
+        'https://poemapp-d0967-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'poemapp-d0967.appspot.com',
     iosClientId:
         '620834351085-v0odo22mk6cmrahad6ueb63qje2ls8ij.apps.googleusercontent.com',
@@ -77,6 +83,8 @@ class DefaultFirebaseOptions {
     appId: '1:620834351085:ios:285bafc7a4fab32c99e9e4',
     messagingSenderId: '620834351085',
     projectId: 'poemapp-d0967',
+    databaseURL:
+        'https://poemapp-d0967-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'poemapp-d0967.appspot.com',
     iosClientId:
         '620834351085-v0odo22mk6cmrahad6ueb63qje2ls8ij.apps.googleusercontent.com',

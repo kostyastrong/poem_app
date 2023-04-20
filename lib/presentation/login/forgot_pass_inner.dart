@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
@@ -13,14 +12,6 @@ class ForgotPassInner extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     logger.i('forgotPassPage');
-
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user != null) {
-        logger.i(user.uid);
-      } else {
-        logger.i("unautharized");
-      }
-    });
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
