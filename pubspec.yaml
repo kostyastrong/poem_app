@@ -22,9 +22,17 @@ dependencies:
   flutter_riverpod: ^2.3.4
   firebase_core: ^2.9.0
   firebase_auth: ^4.4.0
+  cloud_firestore: ^4.5.1
   google_fonts: ^4.0.3
   shared_preferences: ^2.1.0
   google_sign_in: ^6.1.0
+  firebase_ui_auth: ^1.2.1
+  firebase_ui_oauth_google: ^1.1.1
+  flutter_svg: any
+  firebase_database: ^10.1.0
+  flutter_swipe_action_cell: ^3.1.0
+  firebase_crashlytics: ^3.1.0
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +61,7 @@ flutter_launcher_icons:
     image_path: "assets/logo/logo.png"
 
 
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -64,5 +73,6 @@ flutter:
     - assets/
     - assets/images/
     - assets/backgrounds/
+    - assets/appearance/align_icons/
   uses-material-design: true
 

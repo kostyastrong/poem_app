@@ -29,7 +29,7 @@ class LoginPage extends ConsumerWidget {
                 height: 500,
                 child: DecoratedBox(
                   decoration: const BoxDecoration(
-                    color: Colors.white54,
+                    color: Colors.white70,
                   ),
                   child: Center(
                     child: SizedBox(

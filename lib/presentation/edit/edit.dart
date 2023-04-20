@@ -2,21 +2,24 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
+import 'package:poem_app/presentation/edit/poem_text.dart';
 import 'package:poem_app/presentation/styles/texts.dart';
 
+import '/di.dart';
 import '../lang.dart';
+import 'align_button.dart';
 
-class EditPage extends StatefulWidget {
+class EditPage extends ConsumerWidget {
   const EditPage({Key? key}) : super(key: key);
 
   @override
-  State<EditPage> createState() => _EditPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    logger.i("Edit page build");
+    final editManager = ref.watch(poemEditManager);
 
-class _EditPageState extends State<EditPage> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -47,83 +50,31 @@ class _EditPageState extends State<EditPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red[50],
-                    shape: const CircleBorder(),
-                    side: const BorderSide(color: Colors.red, width: 2),
-                  ),
-                  onPressed: () {},
-                  child: Center(
-                    child: Text(
-                      '1',
-                      style: ThemeText.smallBold,
-                    ),
+                AlignButton(
+                  alignFunc: editManager.changeAlign,
+                  align: TextAlign.left,
+                  icon: SvgPicture.asset(
+                    'assets/appearance/align_icons/align-left.svg',
                   ),
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red[50],
-                    shape: const CircleBorder(),
-                    side: const BorderSide(color: Colors.red, width: 2),
-                  ),
-                  onPressed: () {},
-                  child: Center(
-                    child: Text(
-                      '2',
-                      style: ThemeText.smallBold,
-                    ),
+                AlignButton(
+                  alignFunc: editManager.changeAlign,
+                  align: TextAlign.center,
+                  icon: SvgPicture.asset(
+                    'assets/appearance/align_icons/align-center.svg',
                   ),
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red[50],
-                    shape: const CircleBorder(),
-                    side: const BorderSide(color: Colors.red, width: 2),
-                  ),
-                  onPressed: () {},
-                  child: Center(
-                    child: Text(
-                      '3',
-                      style: ThemeText.smallBold,
-                    ),
+                AlignButton(
+                  alignFunc: editManager.changeAlign,
+                  align: TextAlign.right,
+                  icon: SvgPicture.asset(
+                    'assets/appearance/align_icons/align-right.svg',
                   ),
                 ),
               ],
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class PoemText extends StatefulWidget {
-  const PoemText({Key? key}) : super(key: key);
-
-  @override
-  State<PoemText> createState() => _PoemTextState();
-}
-
-class _PoemTextState extends State<PoemText> {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: firstCapitalized(Lang.of(context).textOfPoem),
-          border: InputBorder.none,
-        ),
-        minLines: 100,
-        style: ThemeText.defaultPoem,
-        maxLines: null,
-        textCapitalization: TextCapitalization.sentences,
-        inputFormatters: const [
-          //UpperCaseTextFormatter(),
-        ],
-        cursorColor: Colors.red,
-        autofocus: true,
-        keyboardType: TextInputType.multiline,
       ),
     );
   }

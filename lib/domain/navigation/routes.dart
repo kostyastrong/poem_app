@@ -9,6 +9,7 @@ class Routes {
   static const settings = '/settings';
   static const login = '/login';
   static const edit = '/edit';
+  static const profile = '/profile';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     final Widget widget;

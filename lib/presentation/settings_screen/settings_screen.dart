@@ -24,7 +24,7 @@ class SettingsScreen extends ConsumerWidget {
               width: 300,
               child: ElevatedButton(
                 onPressed: () {
-                  ref.watch(navigation).pushLogin();
+                  ref.watch(navigationProvider).pushLogin();
                 },
                 child: Text(
                   Lang.of(context).logout,

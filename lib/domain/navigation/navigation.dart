@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'routes.dart';
 
 class Navigation {
   static final navigationKey = GlobalKey<NavigatorState>();
+
   void pushLogin() {
     navigationKey.currentState!.pushNamed(Routes.login);
   }

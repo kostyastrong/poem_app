@@ -14,9 +14,19 @@ abstract class ThemeText {
   );
 
   static final TextStyle smallBold = GoogleFonts.inter(
-    fontSize: 15,
+    fontSize: 13,
     color: Colors.black,
     fontWeight: FontWeight.w700,
+  );
+  static final TextStyle titleCell = GoogleFonts.inter(
+    fontSize: 20,
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final TextStyle poemCell = GoogleFonts.inter(
+    fontSize: 17,
+    color: Colors.black54,
   );
 
   static final TextStyle defaultPoem = GoogleFonts.lora(
