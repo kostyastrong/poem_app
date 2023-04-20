@@ -12,7 +12,7 @@ class PoemEditManager {
   }
 
   bool poemIsCreatedBefore() {
-    return poemEditNotifier.state.poemEditIndex != null;
+    return poemEditNotifier.getIndex() != null;
   }
 
   void updatePoemEditIndex(int? index) => poemEditNotifier.updateIndex(index);

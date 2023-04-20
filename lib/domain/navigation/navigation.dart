@@ -19,7 +19,6 @@ class Navigation {
   }
 
   void pushHome() {
-    final container = ProviderContainer();
     navigationKey.currentState!.pushNamed(Routes.home);
   }
 }
