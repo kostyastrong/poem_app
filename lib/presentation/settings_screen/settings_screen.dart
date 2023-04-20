@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:poem_app/di.dart';
+import 'package:poem_app/presentation/lang.dart';
 import 'package:poem_app/presentation/settings_screen/theme_switch_row.dart';
 
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("Settings")),
@@ -20,15 +18,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           children: [
             const ThemeSwitcher(),
-            const SizedBox(height: 10),
-            // const Divider(),
-            Row(
-              children: [
-                Text(
-                  "Second row",
-                  style: Theme.of(context).textTheme.bodyMedium,
+            //const LanguageSwitcher(),
+            const Spacer(),
+            SizedBox(
+              width: 300,
+              child: ElevatedButton(
+                onPressed: () {
+                  ref.watch(navigationProvider).pushLogin();
+                },
+                child: Text(
+                  Lang.of(context).logout,
                 ),
-              ],
+              ),
             )
           ],
         ),

@@ -3,6 +3,9 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/di.dart';
+import 'package:poem_app/presentation/login/forgot_pass_inner.dart';
+import 'package:poem_app/presentation/login/login_inner.dart';
+import 'singup_inner.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -33,25 +36,10 @@ class LoginPage extends ConsumerWidget {
                   child: Center(
                     child: SizedBox(
                       width: 300,
-                      child: FirebaseUIActions(
-                        actions: [
-                          AuthStateChangeAction<SignedIn>((context, state) {
-                            if (!state.user!.emailVerified) {
-                              ref
-                                  .read(navigationProvider)
-                                  .pushHome(); // TODO: make verify-email page
-                            } else {
-                              ref.read(navigationProvider).pushHome();
-                              // TODO: make profile page
-                            }
-                          }),
-                        ],
-                        child: LoginView(
-                          action: AuthAction.signIn,
-                          providers: FirebaseUIAuth.providersFor(
-                            FirebaseAuth.instance.app,
-                          ),
-                        ),
+                      child: stateLoginSignUp.when(
+                        login: () => const LoginInner(),
+                        signup: () => const SignUpInner(),
+                        forgotPass: () => const ForgotPassInner(),
                       ),
                     ),
                   ),

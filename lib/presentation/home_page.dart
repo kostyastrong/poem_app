@@ -51,9 +51,11 @@ class HomePage extends ConsumerWidget {
             },
             child: const Text('Edit'),
           ),
-          TextButton(
-            onPressed: () => throw Exception(),
-            child: const Text("Throw Test Exception"),
+          ElevatedButton(
+            onPressed: () {
+              ref.watch(navigationProvider).pushSettings();
+            },
+            child: const Text('Settings'),
           ),
         ],
       ),
