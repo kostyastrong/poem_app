@@ -15,5 +15,9 @@ class PoemEditManager {
     return poemEditNotifier.state.poemEditIndex != null;
   }
 
+  int? getIndex() {
+    return poemEditNotifier.state.poemEditIndex;
+  }
+
   void updatePoemEditIndex(int? index) => poemEditNotifier.updateIndex(index);
 }

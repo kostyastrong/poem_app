@@ -14,6 +14,10 @@ class Navigation {
     navigationKey.currentState!.pushNamed(Routes.edit);
   }
 
+  BuildContext getContext() {
+    return navigationKey.currentContext!;
+  }
+
   void pushSettings() {
     navigationKey.currentState!.pushNamed(Routes.settings);
   }

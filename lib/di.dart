@@ -36,5 +36,5 @@ final poemsNotifierProvider =
 );
 
 final dbPoemsManagerProvider = Provider(
-  (ref) => DbPoemManager(ref.watch(poemsNotifierProvider.notifier))..init(),
+  (ref) => DbPoemsManager(ref.watch(poemsNotifierProvider.notifier))..init(),
 );

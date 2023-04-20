@@ -8,12 +8,12 @@ class PoemModel {
   final String title;
   final String poem;
   final int lastEdited;
-  final int index;
+  final int index;  // index in db
 
   PoemModel({
     required this.index,
-    required this.title,
-    required this.poem,
+    this.title = "",
+    this.poem = "",
     required this.lastEdited,
   });
 
