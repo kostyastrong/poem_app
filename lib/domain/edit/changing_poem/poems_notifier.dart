@@ -13,5 +13,16 @@ class PoemsNotifier extends StateNotifier<List<PoemModel>> {
     state[newPoem.index] = newPoem;
   }
 
+  PoemModel getByIndex(int index) {
+    return state[index];
+  }
 
+  int addPoem(PoemModel poemModel) {
+    state.add(poemModel);
+    return poemModel.index;
+  }
+
+  int length() {
+    return state.length;
+  }
 }

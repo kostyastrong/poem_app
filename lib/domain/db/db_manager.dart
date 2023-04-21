@@ -71,7 +71,7 @@ class DbPoemsManager {
   }
 
   PoemModel getPoemByIndex(int index) {
-    return _poemsNotifier.state[index];
+    return _poemsNotifier.getByIndex(index);
   }
 
   void updatePoemList(PoemModel newVersion) {
@@ -83,23 +83,22 @@ class DbPoemsManager {
         .collection('poems')
         .doc("${newVersion.index}")
         .update(newVersion.toJson())
-        .then((value) => print("DocumentSnapshot successfully updated!"),
-            onError: (e) => print("Error updating document $e"));
+        .then((value) => logger.i("DocumentSnapshot successfully updated!"),
+            onError: (e) => logger.i("Error updating document $e"),);
   }
 
   void updateFirebasePoem(PoemModel newPoem) {
     updatePoemList(newPoem);
     updateLogin();
     DatabaseReference poemRef =
-        FirebaseDatabase.instance.ref("poems/${currentUser}/${newPoem.index}");
+        FirebaseDatabase.instance.ref("poems/$currentUser/${newPoem.index}");
     poemRef.set(newPoem.toJson());
   }
 
   int addEmptyPoem() {
-    _poemsNotifier.state.add(PoemModel(
-        index: _poemsNotifier.state.length,
-        lastEdited: DateTime.now().millisecondsSinceEpoch));
-    return _poemsNotifier.state.length - 1;
+    return _poemsNotifier.addPoem(PoemModel(
+        index: _poemsNotifier.length(),
+        lastEdited: DateTime.now().millisecondsSinceEpoch,),);
   }
 
   Future<void> addPoemDefPoem() async {

@@ -17,8 +17,8 @@ class TitleText extends ConsumerWidget {
     if (editManager.poemIsCreatedBefore()) {
       startTitleText = ref
           .read(
-        poemsNotifierProvider,
-      )[ref.read(poemEditNotifier).poemEditIndex!]
+            poemsNotifierProvider,
+          )[ref.read(poemEditNotifier).poemEditIndex!]
           .title; // TODO: should i make it with manager?
     }
     final controller = TextEditingController();

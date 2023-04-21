@@ -9,7 +9,6 @@ class LoginPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final stateLoginSignUp = ref.watch(loginSignUpProvider);
 
     return Scaffold(
       body: Container(

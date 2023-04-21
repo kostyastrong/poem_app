@@ -9,7 +9,7 @@ part 'poem_model.g.dart';
 @freezed
 class PoemModel with _$PoemModel {
   factory PoemModel({
-    required int index,  // index in db
+    required int index, // index in db
     @Default("") String title,
     @Default("") String poem,
     required int lastEdited,

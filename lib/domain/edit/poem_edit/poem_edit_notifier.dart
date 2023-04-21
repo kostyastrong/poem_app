@@ -21,7 +21,8 @@ class PoemEditNotifier extends StateNotifier<PoemEditState> {
   }
 
   int? getIndex() => state.poemEditIndex;
-  PoemModel? getCurrentPoem() => getIndex() != null ? dbManager.getPoemByIndex(getIndex()!) : null;
+  PoemModel? getCurrentPoem() =>
+      getIndex() != null ? dbManager.getPoemByIndex(getIndex()!) : null;
 
   void updateIndex(int? index) => state = state.copyWith(poemEditIndex: index);
 }

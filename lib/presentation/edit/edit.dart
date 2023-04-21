@@ -40,7 +40,7 @@ class EditPage extends ConsumerWidget {
               ],
             ),
             const TitleText(),
-            Expanded(child: PoemText()),
+            const Expanded(child: PoemText()),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

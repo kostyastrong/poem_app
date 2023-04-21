@@ -11,7 +11,7 @@ import '../styles/texts.dart';
 import 'edit.dart';
 
 class PoemText extends ConsumerStatefulWidget {
-  PoemText({Key? key}) : super(key: key);
+  const PoemText({Key? key}) : super(key: key);
 
   @override
   ConsumerState<PoemText> createState() => _PoemTextState();
@@ -25,7 +25,7 @@ class _PoemTextState extends ConsumerState<PoemText> {
   void changeTextPoem() {
     PoemModel newPoem = editManager.getPoem()!.copyWith(
         poem: controller.text,
-        lastEdited: DateTime.now().millisecondsSinceEpoch);
+        lastEdited: DateTime.now().millisecondsSinceEpoch,);
     dbPoemsManager.updatePoemList(newPoem);
   }
 
@@ -84,6 +84,7 @@ class _PoemTextState extends ConsumerState<PoemText> {
       ),
     );
   }
+
   @override
   void dispose() {
     super.dispose();

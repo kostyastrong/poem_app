@@ -22,7 +22,8 @@ final loginManagerProvider =
     Provider((ref) => LoginManager(ref.watch(loginSignUpProvider.notifier)));
 
 final poemEditNotifier = StateNotifierProvider<PoemEditNotifier, PoemEditState>(
-  (ref) => PoemEditNotifier(ref.watch(dbPoemsManagerProvider)),  // TODO : does it change after each change in list?
+  (ref) => PoemEditNotifier(ref.watch(
+      dbPoemsManagerProvider,),), // TODO : does it change after each change in list?
 ); // state of settings of editing poem
 final poemEditManager =
     Provider((ref) => PoemEditManager(ref.watch(poemEditNotifier.notifier)));
