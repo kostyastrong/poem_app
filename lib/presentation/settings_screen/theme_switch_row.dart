@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/domain/theme/theme_manager.dart';
 import 'package:poem_app/domain/theme/theme_state_holder.dart';
+import 'package:poem_app/presentation/lang.dart';
 
 class ThemeSwitcher extends ConsumerWidget {
   const ThemeSwitcher({super.key});
@@ -18,7 +19,7 @@ class ThemeSwitcher extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Dark theme",
+          Lang.of(context).darkTheme,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         Switch(

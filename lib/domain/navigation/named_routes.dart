@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -37,23 +36,24 @@ class NamedRoutesWithParams extends StatelessWidget {
       return true;
     };
 
-    return UncontrolledProviderScope(
-      container: ProviderContainer(),
-      child: ThemeWidget(
-        child: MaterialApp(
-          localizationsDelegates: const [
-            Lang.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: const [
-            Locale('ru'), // Russian
-            Locale('en'), // English
-          ],
-          initialRoute: Routes.home,
-          navigatorKey: Navigation.navigationKey,
-          onGenerateRoute: Routes.onGenerateRoute,
+    return ProviderScope(
+      child: MaterialApp(
+        localizationsDelegates: const [
+          Lang.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('ru'), // Russian
+          Locale('en'), // English
+        ],
+        initialRoute: Routes.home,
+        locale: Lang.ru,
+        navigatorKey: Navigation.navigationKey,
+        onGenerateRoute: Routes.onGenerateRoute,
+        builder: (context, child) => ThemeWidget(
+          child: child ?? const SizedBox.shrink(),
         ),
       ),
     );

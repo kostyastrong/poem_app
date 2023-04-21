@@ -17,5 +17,9 @@
   "email": "Email",
   "recoverAcc": "Recover your account",
   "resetPass": "Reset password",
-  "logout": "Logout"
+  "logout": "Logout",
+  "darkTheme": "Dark Theme",
+  "language": "Language",
+  "settings": "Settings",
+  "edit": "Edit"
 }

@@ -42,20 +42,20 @@ class HomePage extends ConsumerWidget {
             onPressed: () {
               ref.read(navigationProvider).pushLogin();
             },
-            child: const Text('Login'),
+            child: Text(Lang.of(context).login),
           ),
           ElevatedButton(
             onPressed: () {
               ref.read(poemEditManager).updatePoemEditIndex(null);
               ref.read(navigationProvider).pushEdit();
             },
-            child: const Text('Edit'),
+            child: Text(Lang.of(context).edit),
           ),
           ElevatedButton(
             onPressed: () {
               ref.watch(navigationProvider).pushSettings();
             },
-            child: const Text('Settings'),
+            child: Text(Lang.of(context).settings),
           ),
         ],
       ),
