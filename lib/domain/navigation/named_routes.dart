@@ -8,6 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poem_app/presentation/lang.dart';
 import 'package:poem_app/presentation/logger.dart';
+import 'package:poem_app/presentation/theme/theme.dart';
 
 import 'navigation.dart';
 import 'routes.dart';
@@ -38,20 +39,22 @@ class NamedRoutesWithParams extends StatelessWidget {
 
     return UncontrolledProviderScope(
       container: ProviderContainer(),
-      child: MaterialApp(
-        localizationsDelegates: const [
-          Lang.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('ru'), // Russian
-          Locale('en'), // English
-        ],
-        initialRoute: Routes.home,
-        navigatorKey: Navigation.navigationKey,
-        onGenerateRoute: Routes.onGenerateRoute,
+      child: ThemeWidget(
+        child: MaterialApp(
+          localizationsDelegates: const [
+            Lang.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('ru'), // Russian
+            Locale('en'), // English
+          ],
+          initialRoute: Routes.home,
+          navigatorKey: Navigation.navigationKey,
+          onGenerateRoute: Routes.onGenerateRoute,
+        ),
       ),
     );
   }

@@ -9,21 +9,23 @@ abstract class ThemeButton {
 }
 
 class CircleTapButton extends StatelessWidget {
-  CircleTapButton({
+  const CircleTapButton({
     Key? key,
-    this.func,
+    required this.func,
     this.icon,
     this.backgroundColor = const Color.fromRGBO(237, 190, 190, 1.0),
   }) : super(key: key);
 
-  final func;
-  late final Color backgroundColor;
-  Widget? icon;
+  final Function func;
+  final Color backgroundColor;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: func,
+      onPressed: () {
+        func();
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         shape: const CircleBorder(),

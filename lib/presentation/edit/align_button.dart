@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class AlignButton extends StatelessWidget {
   const AlignButton({
@@ -7,9 +8,9 @@ class AlignButton extends StatelessWidget {
     required this.alignFunc,
     required this.icon,
   }) : super(key: key);
-  final alignFunc;
-  final align;
-  final icon;
+  final Function alignFunc;
+  final TextAlign align;
+  final SvgPicture icon;
 
   @override
   Widget build(BuildContext context) {

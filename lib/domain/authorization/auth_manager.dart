@@ -11,11 +11,11 @@ class AuthManager {
   AuthManager(this.authNotifier);
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
-    authNotifier.state = authNotifier.state.copyWith(user: null);
+    authNotifier.setSignOut();
   }
 
   void signIn(User user) {
-    authNotifier.state = authNotifier.state.copyWith(user: user);
+    authNotifier.setUser(user);
   }
 
   void init() {

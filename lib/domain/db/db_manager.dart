@@ -4,8 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:poem_app/di.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 
 import '../edit/changing_poem/poems_notifier.dart';
@@ -38,7 +36,7 @@ class DbPoemsManager {
     index: 0,
     title: 'Be',
     poem:
-    "Be the dream to everybody,\n Be as your most thoughtful film,\n Be the hero, be the fighter,\n Be the one you've always been.",
+        "Be the dream to everybody,\n Be as your most thoughtful film,\n Be the hero, be the fighter,\n Be the one you've always been.",
     lastEdited: 666,
   );
 
@@ -46,7 +44,6 @@ class DbPoemsManager {
     if (!_isLogin()) {
       return;
     }
-
 
     poemFieldController ??= TextEditingController();
     titleFieldController ??= TextEditingController();
@@ -60,8 +57,6 @@ class DbPoemsManager {
       _poemsNotifier.updateAllPoems(userModel.poems);
     });
   }
-
-
 
   Future<void> addPoem(PoemModel poem) async {
     if (!_isLogin()) {
@@ -79,36 +74,31 @@ class DbPoemsManager {
     return _poemsNotifier.state[index];
   }
 
-
   void updatePoemList(PoemModel newVersion) {
     _poemsNotifier.updatePoem(newVersion);
+    logger.i("poem ${newVersion.index} has been added to temporary storage");
     db
         ?.collection('poems')
         .doc(currentUser!.uid)
         .collection('poems')
         .doc("${newVersion.index}")
-        .set(newVersion.toJson());
+        .update(newVersion.toJson())
+        .then((value) => print("DocumentSnapshot successfully updated!"),
+            onError: (e) => print("Error updating document $e"));
   }
 
   void updateFirebasePoem(PoemModel newPoem) {
     updatePoemList(newPoem);
     updateLogin();
     DatabaseReference poemRef =
-    FirebaseDatabase.instance.ref("poems/${currentUser}/${newPoem.index}");
+        FirebaseDatabase.instance.ref("poems/${currentUser}/${newPoem.index}");
     poemRef.set(newPoem.toJson());
-  }
-
-  void updatePoemListener() {
-    final newTitleText = titleFieldController!.text;
-    final newPoemText = poemFieldController!.text;
   }
 
   int addEmptyPoem() {
     _poemsNotifier.state.add(PoemModel(
         index: _poemsNotifier.state.length,
-        lastEdited: DateTime
-            .now()
-            .millisecondsSinceEpoch));
+        lastEdited: DateTime.now().millisecondsSinceEpoch));
     return _poemsNotifier.state.length - 1;
   }
 

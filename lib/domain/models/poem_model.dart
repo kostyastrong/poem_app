@@ -1,21 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../navigation/named_routes.dart';
+
+part 'poem_model.freezed.dart';
 part 'poem_model.g.dart';
 
-@JsonSerializable()
-class PoemModel {
-  final String title;
-  final String poem;
-  final int lastEdited;
-  final int index;  // index in db
-
-  PoemModel({
-    required this.index,
-    this.title = "",
-    this.poem = "",
-    required this.lastEdited,
-  });
+@freezed
+class PoemModel with _$PoemModel {
+  factory PoemModel({
+    required int index,  // index in db
+    @Default("") String title,
+    @Default("") String poem,
+    required int lastEdited,
+  }) = _PoemModel;
 
   factory PoemModel.fromDocumentSnapshot(
     DocumentSnapshot<Map<String, dynamic>> snapshot,
@@ -30,18 +28,20 @@ class PoemModel {
     );
   }
 
-  // TODO: fails when trying to do with json_serializable
-  factory PoemModel.fromJson(Map<String, dynamic> data) {
+  // TODO: fails when trying to do with json_serializable and no copyWith
+  factory PoemModel.fromJson(Map<String, dynamic> json) {
+    logger.i(json.toString());
     return PoemModel(
-      title: data['title'],
-      lastEdited: data['last_edited'],
-      poem: data['poem'],
-      index: data['index'],
+      title: json['title'],
+      lastEdited: json['last_edited'],
+      poem: json['poem'],
+      index: json['index'],
     );
+    // return _$PoemModelFromJson(json);
   }
 
   // factory PoemModel.fromJson(Map<String, dynamic> data) =>
   //     _$PoemModelFromJson(data);
 
-  Map<String, dynamic> toJson() => _$PoemModelToJson(this);
+  // Map<String, dynamic> toJson() => _$PoemModelToJson(this);
 }
