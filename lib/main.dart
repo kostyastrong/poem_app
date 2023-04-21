@@ -10,7 +10,7 @@ import '/firebase_options.dart';
 
 Future<void> main() async {
   // Slow down time to see lerping.
-  timeDilation = 0.5;
+  timeDilation = 1.0;
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
