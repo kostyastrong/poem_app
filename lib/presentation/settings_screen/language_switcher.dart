@@ -8,7 +8,7 @@ class LanguageSwitcher extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isEn = false;
+    const isEn = false;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

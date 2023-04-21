@@ -13,9 +13,6 @@ import 'domain/login/login_sign_up_notifier.dart';
 import 'domain/login/login_sign_up_state.dart';
 import 'domain/models/poem_model.dart';
 
-
-
-
 final navigationProvider = Provider((ref) => Navigation());
 
 final loginSignUpProvider =

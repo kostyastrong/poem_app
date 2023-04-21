@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +6,7 @@ import 'package:poem_app/presentation/lang.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final l10nManagerProvider = Provider(
-      (ref) => L10nManager(
+  (ref) => L10nManager(
     ref.watch(l10nStateHolderProvider.notifier),
   )..init(),
 );
