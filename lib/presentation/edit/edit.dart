@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:poem_app/domain/navigation/named_routes.dart';
 import 'package:poem_app/presentation/edit/poem_text.dart';
+import 'package:poem_app/presentation/edit/title_text.dart';
 import 'package:poem_app/presentation/styles/texts.dart';
 
 import '/di.dart';
@@ -38,14 +39,7 @@ class EditPage extends ConsumerWidget {
                 ),
               ],
             ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: firstCapitalized(Lang.of(context).title),
-                border: InputBorder.none,
-              ),
-              style: ThemeText.defaultPoemTitle,
-              textCapitalization: TextCapitalization.words,
-            ),
+            const TitleText(),
             const Expanded(child: PoemText()),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

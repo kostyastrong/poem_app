@@ -13,7 +13,7 @@ class UserModel {
     DocumentSnapshot<Map<String, dynamic>> snapshot,
     SnapshotOptions? options,
   ) {
-    logger.w(snapshot.data()?['poems']['poems']);
+    logger.i(snapshot.data()?['poems']['poems']);
     final data =
         List<Map<String, dynamic>>.from(snapshot.data()?['poems']['poems']);
     List<PoemModel> poemsTemp = [];
